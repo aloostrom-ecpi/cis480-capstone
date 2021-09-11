@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/mean-crud-census'),
+      dir: require('path').join(__dirname, './coverage/cis480-capstone'),
       subdir: '.',
       reporters: [
         { type: 'html' },
