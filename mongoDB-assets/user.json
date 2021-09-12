@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbf6"
+  },
+  "firstname": "Owen",
+  "lastname": "Haag",
+  "username": "owehaa5966 ",
+  "password": "P@ssw0rd1",
+  "email": "owehaa5966 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": false,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbf7"
+  },
+  "firstname": "Eula",
+  "lastname": "Turcotte",
+  "username": "eultur7710 ",
+  "password": "P@ssw0rd1",
+  "email": "eultur7710 @alpha.ecpi.edu",
+  "role": 2,
+  "suspended": true,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbf8"
+  },
+  "firstname": "Lisette",
+  "lastname": "Corwin",
+  "username": "liscor1219 ",
+  "password": "P@ssw0rd1",
+  "email": "liscor1219 @alpha.ecpi.edu",
+  "role": 2,
+  "suspended": false,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbf9"
+  },
+  "firstname": "Gardner",
+  "lastname": "Johns",
+  "username": "garjoh8811 ",
+  "password": "P@ssw0rd1",
+  "email": "garjoh8811 @alpha.ecpi.edu",
+  "role": 2,
+  "suspended": true,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbfa"
+  },
+  "firstname": "Scot",
+  "lastname": "Thiel",
+  "username": "scothi4747 ",
+  "password": "P@ssw0rd1",
+  "email": "scothi4747 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": true,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbfb"
+  },
+  "firstname": "Bennie",
+  "lastname": "Robel",
+  "username": "benrob3660 ",
+  "password": "P@ssw0rd1",
+  "email": "benrob3660 @alpha.ecpi.edu",
+  "role": 2,
+  "suspended": false,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbfc"
+  },
+  "firstname": "Lew",
+  "lastname": "Wolff",
+  "username": "lewwol2058 ",
+  "password": "P@ssw0rd1",
+  "email": "lewwol2058 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": false,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbfd"
+  },
+  "firstname": "Berneice",
+  "lastname": "Beahan",
+  "username": "berbea1760 ",
+  "password": "P@ssw0rd1",
+  "email": "berbea1760 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": true,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbfe"
+  },
+  "firstname": "Ali",
+  "lastname": "Turcotte",
+  "username": "alitur8097 ",
+  "password": "P@ssw0rd1",
+  "email": "alitur8097 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": false,
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bb43966abb716fcfbff"
+  },
+  "firstname": "Skye",
+  "lastname": "VonRueden",
+  "username": "skyvon3376 ",
+  "password": "P@ssw0rd1",
+  "email": "skyvon3376 @alpha.ecpi.edu",
+  "role": 1,
+  "suspended": false,
+  "notification": []
+}]

@@ -1,0 +1,141 @@
+[{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc02"
+  },
+  "companyName": "Maggio - Klocko",
+  "firstname": "Cristina",
+  "lastname": "Hilll",
+  "username": "crihil8683 ",
+  "password": "P@ssw0rd1",
+  "email": "crihil8683 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc03"
+  },
+  "companyName": "Armstrong and Sons",
+  "firstname": "Gregoria",
+  "lastname": "Boehm",
+  "username": "greboe1703 ",
+  "password": "P@ssw0rd1",
+  "email": "greboe1703 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc04"
+  },
+  "companyName": "Abbott and Sons",
+  "firstname": "Kenna",
+  "lastname": "Flatley",
+  "username": "kenfla4814 ",
+  "password": "P@ssw0rd1",
+  "email": "kenfla4814 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc05"
+  },
+  "companyName": "Terry, Daniel and Considine",
+  "firstname": "Anne",
+  "lastname": "Schinner",
+  "username": "annsch6559 ",
+  "password": "P@ssw0rd1",
+  "email": "annsch6559 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc06"
+  },
+  "companyName": "Hirthe, Gibson and Bergstrom",
+  "firstname": "Vernon",
+  "lastname": "Hermiston",
+  "username": "verher9832 ",
+  "password": "P@ssw0rd1",
+  "email": "verher9832 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc07"
+  },
+  "companyName": "Bartoletti - Connelly",
+  "firstname": "Watson",
+  "lastname": "Turner",
+  "username": "wattur9648 ",
+  "password": "P@ssw0rd1",
+  "email": "wattur9648 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc08"
+  },
+  "companyName": "Daniel LLC",
+  "firstname": "Anibal",
+  "lastname": "Nikolaus",
+  "username": "aninik5917 ",
+  "password": "P@ssw0rd1",
+  "email": "aninik5917 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc09"
+  },
+  "companyName": "Welch, Walker and Jacobi",
+  "firstname": "Lilla",
+  "lastname": "Kuvalis",
+  "username": "lilkuv1475 ",
+  "password": "P@ssw0rd1",
+  "email": "lilkuv1475 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc0a"
+  },
+  "companyName": "Murray Group",
+  "firstname": "Torey",
+  "lastname": "Barton",
+  "username": "torbar8726 ",
+  "password": "P@ssw0rd1",
+  "email": "torbar8726 @alpha.ecpi.edu",
+  "suspended": true,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+},{
+  "_id": {
+    "$oid": "613d3bce3966abb716fcfc0b"
+  },
+  "companyName": "Welch, Schiller and Kassulke",
+  "firstname": "Giuseppe",
+  "lastname": "Wolff",
+  "username": "giuwol9242 ",
+  "password": "P@ssw0rd1",
+  "email": "giuwol9242 @alpha.ecpi.edu",
+  "suspended": false,
+  "rating": 0,
+  "externalLink": "",
+  "notification": []
+}]
