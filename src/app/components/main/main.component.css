@@ -1,0 +1,9 @@
+main {
+    grid-area: main;
+    border: solid black .5rem;
+    width: 95%;
+    min-height: 85vh;
+    padding: .3rem;
+    font-size: 10rem;
+    margin-top: .7rem;
+}

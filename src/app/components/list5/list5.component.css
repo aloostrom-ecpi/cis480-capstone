@@ -1,0 +1,10 @@
+.list5 {
+    display: flex;
+    font-size: 3rem;
+    grid-area: list5;
+    border: black solid .3rem;
+    padding: .5rem;
+    min-height: 70vh;
+    position: sticky;
+    top: 15vh;
+}
