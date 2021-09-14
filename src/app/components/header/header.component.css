@@ -1,0 +1,42 @@
+header {
+    grid-area: head;
+    display: flex;
+    background-color: lightgray;
+    width: 100%;
+    min-height: 6%;
+    max-height: 100%;
+    justify-content: space-around;
+    font-size: 2.4rem;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 1rem;
+}
+.list {
+    width: 70%;
+    margin: auto;
+}
+.list-items {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.list-items a {
+    text-decoration: none;
+    color: black;
+}
+.search {
+    width: 100%;
+    text-align: center;
+}
+.search input {
+    margin-top: 1rem;
+    width: 50%;
+}
+.aicon {
+    margin: auto;
+    padding: 1rem;
+}
+.logo {
+    margin: auto;
+    padding: 1rem;
+}

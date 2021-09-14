@@ -1,0 +1,11 @@
+.top5 {
+    display: flex;
+    grid-area: top5;
+    font-size: 3rem;
+    border: black solid .3rem;
+    padding: .5rem;
+    width: 90%;
+    min-height: 70vh;
+    position: sticky;
+    top: 15vh;
+}
