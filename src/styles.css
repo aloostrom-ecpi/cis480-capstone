@@ -1,4 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    height: 100%;
+}
+body {
+    height: 100%;
+    width: auto;
+}
+.mainDiv {
+    /* just here to wrap all the divs */
+}
+.main2Div {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "top5 main list5";
+    margin-top: 1rem;
+}

@@ -27,6 +27,10 @@ import { LoadPostsComponent } from './components/load-posts/load-posts.component
 import { ClosePostComponent } from './components/close-post/close-post.component';
 import { LoadAccountComponent } from './components/load-account/load-account.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
+import { HeaderComponent } from './components/header/header.component';
+import { List5Component } from './components/list5/list5.component';
+import { MainComponent } from './components/main/main.component';
+import { Top5Component } from './components/top5/top5.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { AddReviewComponent } from './components/add-review/add-review.component
     LoadPostsComponent,
     ClosePostComponent,
     LoadAccountComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    HeaderComponent,
+    List5Component,
+    MainComponent,
+    Top5Component
   ],
   imports: [
     BrowserModule,
