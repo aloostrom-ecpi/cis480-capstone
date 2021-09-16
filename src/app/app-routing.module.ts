@@ -5,13 +5,22 @@ import { CensusListComponent } from './components/census-list/census-list.compon
 import { CensusDetailComponent } from './components/census-detail/census-detail.component';
 import { AddCensusComponent } from './components/add-census/add-census.component';
 import { RemoveCensusComponent } from './components/remove-census/remove-census.component';
+import { MainComponent } from './components/main/main.component';
+import { SearchPostsComponent } from './components/search-posts/search-posts.component';
+import { MyPostsComponent } from './components/my-posts/my-posts.component';
+import { NotifyUserComponent } from './components/notify-user/notify-user.component';
+import { LoadAccountComponent } from './components/load-account/load-account.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: CensusListComponent },
+  { path: 'home', component: MainComponent },
+  { path: 'my-posts', component: MyPostsComponent},
+  { path: 'notifications', component: NotifyUserComponent},
+  { path: 'load-account', component: LoadAccountComponent},
   { path: 'edit-census/:id', component: CensusDetailComponent},
   { path: 'add-census', component: AddCensusComponent},
-  { path: 'remove-census/:id', component: RemoveCensusComponent}
+  { path: 'remove-census/:id', component: RemoveCensusComponent},
+  { path: 'search', component: SearchPostsComponent }
 ];
 
 @NgModule({

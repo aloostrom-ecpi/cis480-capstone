@@ -29,5 +29,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Database Setup
+In order to sample full functionality of the app, create a new MongoDB database called 'cis480'. Create collections within this database with the following names:
+<ul>
+    <li>closedPosts</li>
+    <li>contractors</li>
+    <li>openPosts</li>
+    <li>reportedPosts</li>
+    <li>reviews</li>
+    <li>users</li>
+</ul>
+After creating the collections, import the JSON files in /mongoDB-assets matching each collection. 
+
 ## All-in-one start
 Run the task "start all" to launch the API and Angular front end at the same time. 
