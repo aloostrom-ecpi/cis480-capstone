@@ -1,9 +1,11 @@
 .list5 {
   display: flex;
   font-size: 1rem;
-  border: black solid 1px;
+  border: black solid .12rem;
   padding: 0.5rem;
   min-height: 70vh;
   position: sticky;
   top: 12vh;
+  background-color: #FFCC00;
+  color: blue;
 }
