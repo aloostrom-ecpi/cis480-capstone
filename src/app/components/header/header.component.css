@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  background-color: lightgray;
+  background-color: #0099FF;
   width: 100%;
   height: 50px;
   justify-content: space-around;
@@ -30,7 +30,7 @@ ul li {
 
 .list-items a {
   text-decoration: none;
-  color: black;
+  color: #FFCC00;
 }
 .search {
   width: 100%;

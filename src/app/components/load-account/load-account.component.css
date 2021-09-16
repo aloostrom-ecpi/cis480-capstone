@@ -1,0 +1,30 @@
+.loginForm {
+    width: 100vmax;
+    height: 100%;
+    text-align: center;
+    padding: 5rem 0px;
+    font-size: 1.8rem;
+}
+.loginForm a {
+    text-decoration: underline;
+    color: #FFCC00;
+}
+form {
+    width: 20%;
+    border: .2rem #0099FF solid;
+    border-radius: .4rem;
+    margin: .5rem auto;
+    padding: 1rem;
+    align-content: center;
+}
+form input{
+    display: block;
+    margin: .3rem auto;
+    border: .1rem #0099FF solid;
+    border-radius: .3rem;
+    font-size: 1.2rem;
+    color: #0099FF;
+}
+::placeholder {
+    color: #0099FF;
+}
