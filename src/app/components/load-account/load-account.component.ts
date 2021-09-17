@@ -7,7 +7,9 @@
         or this one if we have the time
 */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-load-account',
@@ -15,10 +17,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./load-account.component.css']
 })
 export class LoadAccountComponent implements OnInit {
+  private user!: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.user = this.userService.logout();
+  }
+
+  test() {
+    this.userService.login('owehaa5966', 'P@ssw0rd1').subscribe( res => {console.log(res); this.user = res})
+  }
+
+  login(username : string, password : string) {
+    console.log(username, password);
+    this.userService.login(username, password).subscribe( res => {console.log(res); this.user = res})
   }
 
 }

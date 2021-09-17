@@ -1,10 +1,17 @@
-<div class='loginForm'>
-    <h1>Login</h1>
-    <form action="">
-        <input type="text" placeholder="Username:">
-        <input type="text" placeholder="Password:">
-        <input type="button" value="Login">
-    </form>
-    <p>Create Account click <a routerLinkActive="active" routerLink="../register-user">Here.</a></p>
+<div class="loginForm">
+  <h1>Login</h1>
+  <form action="">
+    <input type="text" placeholder="Username:" #username />
+    <!-- [username]="user.username"  [password]="user.password" -->
+    <input type="text" placeholder="Password:" #password />
+    <input
+      type="button"
+      value="Login"
+      (click)="login(username.value, password.value)"
+    />
+  </form>
+  <p>
+    Create Account click
+    <a routerLinkActive="active" routerLink="../register-user">Here.</a>
+  </p>
 </div>
-
