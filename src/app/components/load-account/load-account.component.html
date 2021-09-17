@@ -1,9 +1,11 @@
 <div class='loginForm'>
     <h1>Login</h1>
     <form action="">
-        <input type="text" placeholder="Username:">
-        <input type="text" placeholder="Password:">
-        <input type="button" value="Login">
+        <input type="text" placeholder="Username"> <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
+        <input type="text" placeholder="Password">
+            <div class='login-button'><!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
+                <input type="button" value="Login">
+            </div>
     </form>
     <p>Create Account click <a routerLinkActive="active" routerLink="../register-user">Here.</a></p>
 </div>
