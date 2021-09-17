@@ -1,15 +1,8 @@
 main {
     width: 100vw;
     height: 100%;
-    display: flex;
+    display: flex; /* next two lines used to center content - Steve Woods */
     justify-content: center;
     margin-top: 10px;
     overflow: hidden;
-    background-color: #FFCC00;
-    border: black solid .12rem;
-  }
-
-  .search{
-      background-color: dodgerblue;
-      width: fit-content;
   }

@@ -24,6 +24,9 @@ form input{
     color: #0099FF;
 }
 ::placeholder {
-    color: #0099FF;
-    font-weight: bold;
+    color: black;
+}
+/*used for spacing the login button away from the inputs for ease of use - Steve Woods*/
+.submit-button{
+    margin-top: 1rem;
 }
