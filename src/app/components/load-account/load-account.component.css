@@ -4,7 +4,7 @@
     text-align: center;
     padding: 5rem 0px;
     font-size: 1.8rem;
-    color: #0099FF;
+    color: black;
 }
 .loginForm a {
     text-decoration: underline;
@@ -12,7 +12,7 @@
 }
 form {
     width: 20%;
-    border: .2rem #0099FF solid;
+    border: .2rem #FFCC00 solid;
     border-radius: .4rem;
     margin: .5rem auto;
     padding: 1rem;
@@ -24,8 +24,9 @@ form input{
     border: .1rem #FFCC00 solid;
     border-radius: .3rem;
     font-size: 1.2rem;
-    color: #0099FF;
+    color: dodgerblue;
 }
 ::placeholder {
     color: #0099FF;
+    font-weight: bold;
 }
