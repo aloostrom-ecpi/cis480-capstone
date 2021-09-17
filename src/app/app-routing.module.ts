@@ -9,7 +9,7 @@ import { SearchPostsComponent } from './components/search-posts/search-posts.com
 import { MyPostsComponent } from './components/my-posts/my-posts.component';
 import { NotifyUserComponent } from './components/notify-user/notify-user.component';
 import { LoadAccountComponent } from './components/load-account/load-account.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'add-census', component: AddCensusComponent},
   { path: 'remove-census/:id', component: RemoveCensusComponent},
   { path: 'search', component: SearchPostsComponent },
-  { path: 'create-account', component: CreateAccountComponent }
+  { path: 'register-user', component: RegisterUserComponent }
 ];
 
 @NgModule({

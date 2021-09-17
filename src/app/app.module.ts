@@ -31,7 +31,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { List5Component } from './components/list5/list5.component';
 import { MainComponent } from './components/main/main.component';
 import { Top5Component } from './components/top5/top5.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +58,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     HeaderComponent,
     List5Component,
     MainComponent,
-    Top5Component,
-    CreateAccountComponent
+    Top5Component
   ],
   imports: [
     BrowserModule,
