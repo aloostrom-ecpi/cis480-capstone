@@ -1,14 +1,15 @@
 .create-account-form{
     width: 100vmax;
-    height: 100%;
+    max-height: fit-content;
+    min-height: 100vh;
     text-align: center;
     padding: 5rem 0px;
     font-size: 1.8rem;
-    color: #0099FF;    
+    color: black;    
 }
 form {
     width: 20%;
-    border: .2rem #0099FF solid;
+    border: .2rem #FFCC00 solid;
     border-radius: .4rem;
     margin: .5rem auto;
     padding: 1rem;
@@ -24,4 +25,5 @@ form input{
 }
 ::placeholder {
     color: #0099FF;
+    font-weight: bold;
 }

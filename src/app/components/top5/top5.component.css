@@ -1,12 +1,10 @@
 .top5 {
   display: flex;
   font-size: 1rem;
-  border: black solid .12rem;
   padding: 0.5rem;
   width: 90%;
   min-height: 70vh;
   position: sticky;
   top: 12vh;
-  background-color: #FFCC00;
   color: blue;
 }
