@@ -1,4 +1,30 @@
-html,
+/* html {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
+}
+body {
+  height: 100%;
+  width: auto;
+}
+.mainDiv {
+  // just here to wrap all the divs 
+} 
+.main2Div {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "top5 main list5";
+    margin-top: 1rem;
+}
+
+ */
+
+html{
+  background: linear-gradient(#0099CC 70%, #FFCC00);
+}
 body,
 div,
 span,
@@ -102,7 +128,9 @@ section {
 }
 body {
   line-height: 1;
+  height:100vh;
   color: #000;
+  background: linear-gradient(#0099CC 70%, #FFCC00);
 }
 ol,
 ul {
