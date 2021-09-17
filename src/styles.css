@@ -1,27 +1,3 @@
-/* html {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-size: 62.5%;
-  height: 100%;
-}
-body {
-  height: 100%;
-  width: auto;
-}
-.mainDiv {
-  // just here to wrap all the divs 
-} 
-.main2Div {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "top5 main list5";
-    margin-top: 1rem;
-}
-
- */
-
 html,
 body,
 div,
@@ -106,7 +82,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: 63.5%;
   font: inherit;
   vertical-align: baseline;
 }
