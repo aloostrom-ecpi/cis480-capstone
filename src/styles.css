@@ -22,7 +22,9 @@ body {
 
  */
 
-html,
+html{
+  background: linear-gradient(#0099CC 70%, #FFCC00);
+}
 body,
 div,
 span,
@@ -126,7 +128,9 @@ section {
 }
 body {
   line-height: 1;
+  height:100vh;
   color: #000;
+  background: linear-gradient(#0099CC 70%, #FFCC00);
 }
 ol,
 ul {
