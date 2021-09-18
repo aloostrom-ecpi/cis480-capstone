@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./load-account.component.css']
 })
 export class LoadAccountComponent implements OnInit {
-  private user!: User;
+  private user?: User;
+  errorMsg?: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -44,7 +45,7 @@ export class LoadAccountComponent implements OnInit {
       
       this.router.navigateByUrl('/')},
 
-      err => console.log(err, "Invalid login"));
+      err => {console.log(err, "Invalid login"); this.errorMsg = "Invalid login"});
 
   }
 
