@@ -6,7 +6,7 @@
   "lastname": "Haag",
   "username": "owehaa5966 ",
   "password": "P@ssw0rd1",
-  "email": "owehaa5966 @alpha.ecpi.edu",
+  "email": "owehaa5966@alpha.ecpi.edu",
   "role": 1,
   "suspended": false,
   "notification": []
@@ -18,7 +18,7 @@
   "lastname": "Turcotte",
   "username": "eultur7710 ",
   "password": "P@ssw0rd1",
-  "email": "eultur7710 @alpha.ecpi.edu",
+  "email": "eultur7710@alpha.ecpi.edu",
   "role": 2,
   "suspended": true,
   "notification": []
@@ -30,7 +30,7 @@
   "lastname": "Corwin",
   "username": "liscor1219 ",
   "password": "P@ssw0rd1",
-  "email": "liscor1219 @alpha.ecpi.edu",
+  "email": "liscor1219@alpha.ecpi.edu",
   "role": 2,
   "suspended": false,
   "notification": []
@@ -42,7 +42,7 @@
   "lastname": "Johns",
   "username": "garjoh8811 ",
   "password": "P@ssw0rd1",
-  "email": "garjoh8811 @alpha.ecpi.edu",
+  "email": "garjoh8811@alpha.ecpi.edu",
   "role": 2,
   "suspended": true,
   "notification": []
@@ -54,7 +54,7 @@
   "lastname": "Thiel",
   "username": "scothi4747 ",
   "password": "P@ssw0rd1",
-  "email": "scothi4747 @alpha.ecpi.edu",
+  "email": "scothi4747@alpha.ecpi.edu",
   "role": 1,
   "suspended": true,
   "notification": []
@@ -66,7 +66,7 @@
   "lastname": "Robel",
   "username": "benrob3660 ",
   "password": "P@ssw0rd1",
-  "email": "benrob3660 @alpha.ecpi.edu",
+  "email": "benrob3660@alpha.ecpi.edu",
   "role": 2,
   "suspended": false,
   "notification": []
@@ -78,7 +78,7 @@
   "lastname": "Wolff",
   "username": "lewwol2058 ",
   "password": "P@ssw0rd1",
-  "email": "lewwol2058 @alpha.ecpi.edu",
+  "email": "lewwol2058@alpha.ecpi.edu",
   "role": 1,
   "suspended": false,
   "notification": []
@@ -90,7 +90,7 @@
   "lastname": "Beahan",
   "username": "berbea1760 ",
   "password": "P@ssw0rd1",
-  "email": "berbea1760 @alpha.ecpi.edu",
+  "email": "berbea1760@alpha.ecpi.edu",
   "role": 1,
   "suspended": true,
   "notification": []
@@ -102,7 +102,7 @@
   "lastname": "Turcotte",
   "username": "alitur8097 ",
   "password": "P@ssw0rd1",
-  "email": "alitur8097 @alpha.ecpi.edu",
+  "email": "alitur8097@alpha.ecpi.edu",
   "role": 1,
   "suspended": false,
   "notification": []
@@ -114,7 +114,7 @@
   "lastname": "VonRueden",
   "username": "skyvon3376 ",
   "password": "P@ssw0rd1",
-  "email": "skyvon3376 @alpha.ecpi.edu",
+  "email": "skyvon3376@alpha.ecpi.edu",
   "role": 1,
   "suspended": false,
   "notification": []
