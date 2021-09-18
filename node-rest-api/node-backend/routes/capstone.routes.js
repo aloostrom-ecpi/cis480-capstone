@@ -17,8 +17,30 @@ let User = require("../model/User");
 
 //^^^^^^^PAL^^^^^^^
 
-//Open Posts
+//Authentication -- Aren
+capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
+    const { uname, pw } = req.params;
+  
+    User.findOne({ username: uname }, async (error, data) => {
+      if (error) return next(error);
+  
+      //extract attributes from data
+      const { _id, username, firstname, lastname } = data;
+  
+      //compare pw with hashed pw and return id, username, firstname, and lastname
+      bcrypt.compare(pw, data.password, (err, result) => {
+        if (err) return err;
+  
+        if (result) {
+          res.status(200).json({ _id, username, firstname, lastname });
+        }
+      });
+    });
+  });
 
+/**********
+Open Posts
+***********/
 //get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
     OpenPosts.find((error, data) => {
@@ -28,27 +50,6 @@ capstoneRoute.route("/open-posts").get((req, res) => {
         } else {
             res.json(data);
         }
-  });
-});
-
-//Authentication
-capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
-  const { uname, pw } = req.params;
-
-  User.findOne({ username: uname }, async (error, data) => {
-    if (error) return next(error);
-
-    //extract attributes from data
-    const { _id, username, firstname, lastname } = data;
-
-    //compare pw with hashed pw and return id, username, firstname, and lastname
-    bcrypt.compare(pw, data.password, (err, result) => {
-      if (err) return err;
-
-      if (result) {
-        res.status(200).json({ _id, username, firstname, lastname });
-      }
-    });
   });
 });
 
