@@ -19,6 +19,9 @@ mongoose.connect(mongoDb.db, {
 )
  
 const censusRoute = require('./routes/census.routes')
+
+//when the API is more defined, import it here - PAL
+//const capstoneRoute = require('./routes/capstone.routes');
  
 const app = express();
 app.use(bodyParser.json());
@@ -33,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'dist/angular-mean-crud-tutorial')))
  
 // API root
 app.use('/api', censusRoute)
+//replace the API root above with
+//app.use('/api', capstoneRoute);
  
 // PORT
 const port = process.env.PORT || 8000;
