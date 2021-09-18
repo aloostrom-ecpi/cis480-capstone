@@ -1,4 +1,4 @@
-.create-account-form{
+/*.create-account-form{
     width: 100vmax;
     max-height: fit-content;
     min-height: 100vh;
@@ -27,6 +27,60 @@ form input{
     color: black;
 }
 /*used for spacing the login button away from the inputs for ease of use - Steve Woods*/
-.submit-button{
+/*.submit-button{
     margin-top: 1rem;
+}*/
+
+/*pulled styling from load account component: Alex Loostrom*/
+
+.create-account-form {
+    width: 100vmax;
+    height: 100%;
+    text-align: center;
+    padding: 5rem 0px;
+    font-size: 1.8rem;
+    color: black;
 }
+.loginForm a {
+    text-decoration: underline;
+    color: #FFCC00;
+}
+form {
+    width: 20%;
+    border: .2rem #FFCC00 solid;
+    border-radius: .4rem;
+    margin: .5rem auto;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    align-content: center;
+    width: fit-content;
+}
+form input{
+    display: block;
+    margin: .3rem auto;
+    border: .1rem #FFCC00 solid;
+    border-radius: .3rem;
+    font-size: 1.2rem;
+    color: black;
+    text-align: left;
+    margin-bottom: .60rem;
+}
+::placeholder {
+    color: black;
+}
+/*added/used a div login-button to space the login button from bottom of input - Steve Woods*/
+.login-button{
+    margin-top: .4rem;
+}
+main {
+    padding: 10px; /* used to format main tag on screen */
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex; /* next two lines to center content */
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(#e2e2e2, dodgerblue);
+    border: black solid .12rem;
+  }
