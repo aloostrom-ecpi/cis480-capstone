@@ -21,13 +21,13 @@ let User = require("../model/User");
 
 //get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
-    OpenPosts.find((error, data) => {
-        if (error) {
-            return next(error);
-            console.log(error);
-        } else {
-            res.json(data);
-        }
+  OpenPosts.find((error, data) => {
+    if (error) {
+      return next(error);
+      console.log(error);
+    } else {
+      res.json(data);
+    }
   });
 });
 
@@ -35,15 +35,19 @@ capstoneRoute.route("/open-posts").get((req, res) => {
 capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
-  User.findOne({ username: uname }, async (error, data) => {
+  User.find({ username: uname }, async (error, data) => {
     if (error) return next(error);
 
+    if (!data.length) {
+      res.send("User does not exist");
+      return;
+    }
     //extract attributes from data
-    const { _id, username, firstname, lastname } = data;
+    const { _id, username, firstname, lastname } = data[0];
 
     //compare pw with hashed pw and return id, username, firstname, and lastname
-    bcrypt.compare(pw, data.password, (err, result) => {
-      if (err) return err;
+    bcrypt.compare(pw, data[0].password, (err, result) => {
+      if (!result) res.send("Invalid Password");
 
       if (result) {
         res.status(200).json({ _id, username, firstname, lastname });
@@ -54,14 +58,14 @@ capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
 
 //get all open posts for a user --PAL
 capstoneRoute.route("/open-posts/:userId").get((req, res) => {
-    OpenPosts.find({author: req.params.userId}, (error, data) => {
-        if (error) {
-            return next(error);
-            console.log(error);
-        } else {
-            res.json(data);
-        }
-    });
+  OpenPosts.find({ author: req.params.userId }, (error, data) => {
+    if (error) {
+      return next(error);
+      console.log(error);
+    } else {
+      res.json(data);
+    }
+  });
 });
 
 //Leave this at the end of the file so we can export the complete
