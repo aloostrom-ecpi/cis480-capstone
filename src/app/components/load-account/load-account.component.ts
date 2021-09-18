@@ -9,7 +9,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/User';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,20 +17,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./load-account.component.css']
 })
 export class LoadAccountComponent implements OnInit {
-  private user?: User;
   errorMsg?: string;
+  isLoggedIn: boolean = localStorage.getItem("session") ? true : false;
+  user = this.isLoggedIn ? JSON.parse(localStorage.session) : '';
+  
 
-  constructor(private userService: UserService, private router: Router) { }
-
-  ngOnInit() {
-    this.user
+  constructor(private userService: UserService, private router: Router) { 
+  
   }
+
+  ngOnInit() { }
 
   ngOnChanges() {}
-
-  test() {
-    this.userService.login('owehaa5966', 'P@ssw0rd1')
-  }
 
   async login(username : string, password : string) {
     const success = await this.userService.login(username, password)
@@ -47,6 +44,11 @@ export class LoadAccountComponent implements OnInit {
 
       err => {console.log(err, "Invalid login"); this.errorMsg = "Invalid login"});
 
+  }
+
+  logout() {
+    localStorage.removeItem("session")
+    this.isLoggedIn = false;
   }
 
 }
