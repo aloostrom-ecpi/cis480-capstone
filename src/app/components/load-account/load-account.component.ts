@@ -33,16 +33,16 @@ export class LoadAccountComponent implements OnInit {
   }
 
   async login(username : string, password : string) {
-    console.log(username, password);
     const success = await this.userService.login(username, password)
 
-    if (success) {
-      console.log("login successful")
-      success.subscribe( data => {this.userService.data = data; console.log(this.userService.data)});
+    success.subscribe( data => {this.userService.data = data; 
+      console.log("login successful", this.userService.data); 
+      localStorage.setItem("session", JSON.stringify(data));
+      console.log(localStorage.getItem("session"))
+      this.router.navigateByUrl('/')},
 
-    } else {
-      console.log("login failed")
-    }
+      err => console.log(err, "Invalid login"));
+
   }
 
 }

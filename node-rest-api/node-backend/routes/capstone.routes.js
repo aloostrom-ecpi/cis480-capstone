@@ -30,6 +30,7 @@ capstoneRoute.route("/open-posts").get((req, res) => {
   });
 });
 
+//Authentication
 capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
@@ -43,8 +44,6 @@ capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
     bcrypt.compare(pw, data.password, (err, result) => {
       if (err) return err;
 
-      //get all open posts for a user --PAL
-
       if (result) {
         res.status(200).json({ _id, username, firstname, lastname });
       }
@@ -52,6 +51,7 @@ capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
   });
 });
 
+//get all open posts for a user --PAL
 capstoneRoute.route("/open-posts/:userId").get((req, res) => {
   OpenPosts.find({ author: req.params.userId }, (error, data) => {
     if (error) {
