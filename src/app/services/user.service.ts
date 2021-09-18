@@ -10,7 +10,7 @@ import { User } from '../models/User';
 })
 export class UserService {
   private httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  private loginURI: string = `http://localhost:8000/user`;
+  private loginURI: string = `http://localhost:8000/api`;
   data!: any;
 
   constructor(private client: HttpClient) { }
