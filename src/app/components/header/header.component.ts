@@ -13,8 +13,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  whoIs() {
-    console.log(this.userService.data);
-  }
-
 }
