@@ -1,23 +1,33 @@
 <main>
   <div class="loginForm">
-    <h1>Login</h1>
-    <form action="" method="POST">
-      <input type="text" placeholder="Username" name="username" #username />
-      <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
-      <input type="text" placeholder="Password" name="password" #password />
-      <div class="login-button">
-        <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
-        <input
-          type="submit"
-          value="Login"
-          (click)="login(username.value, password.value)"
-        />
-        <!-- #username passess value to login(username.value, password.value -->
-      </div>
-    </form>
-    <p>
-      Create Account click
-      <a routerLinkActive="active" routerLink="/register-user">Here.</a>
-    </p>
+    <!-- This is rendered if isLoggedIn is true --Aren -->
+    <div *ngIf="isLoggedIn">
+      <p>Hello {{ user.firstname }}</p>
+      <input type="button" (click)="logout()" value="Log Out" />
+    </div>
+
+    <!-- This is rendered if isLoggedIn is false --Aren -->
+    <div *ngIf="!isLoggedIn">
+      <h1>Login</h1>
+      <form action="" method="POST">
+        <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+        <input type="text" placeholder="Username" name="username" #username />
+        <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
+        <input type="text" placeholder="Password" name="password" #password />
+        <div class="login-button">
+          <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
+          <input
+            type="submit"
+            value="Login"
+            (click)="login(username.value, password.value)"
+          />
+          <!-- #username passess value to login(username.value, password.value -->
+        </div>
+      </form>
+      <p>
+        Create Account click
+        <a routerLinkActive="active" routerLink="/register-user">Here.</a>
+      </p>
+    </div>
   </div>
 </main>

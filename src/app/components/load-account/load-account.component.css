@@ -1,51 +1,56 @@
 .loginForm {
-    width: 100vmax;
-    height: 100%;
-    text-align: center;
-    padding: 5rem 0px;
-    font-size: 1.8rem;
-    color: black;
+  width: 100vmax;
+  height: 100%;
+  text-align: center;
+  padding: 5rem 0px;
+  font-size: 1.8rem;
+  color: black;
 }
 .loginForm a {
-    text-decoration: underline;
-    color: #FFCC00;
+  text-decoration: underline;
+  color: #ffcc00;
 }
 form {
-    width: 20%;
-    border: .2rem #FFCC00 solid;
-    border-radius: .4rem;
-    margin: .5rem auto;
-    padding: 1rem;
-    padding-bottom: 1rem;
-    align-content: center;
-    width: fit-content; /*re-sized form borders to fit test box contents: Alex Loostrom*/
+  width: 20%;
+  border: 0.2rem #ffcc00 solid;
+  border-radius: 0.4rem;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  padding-bottom: 1rem;
+  align-content: center;
+  width: fit-content; /*re-sized form borders to fit test box contents: Alex Loostrom*/
 }
-form input{
-    display: block;
-    margin: .3rem auto;
-    border: .1rem #FFCC00 solid;
-    border-radius: .3rem;
-    font-size: 1.2rem;
-    color: black;
-    text-align: center; 
-    margin-bottom: .60rem; /* space out text boxes to keep from stacking: Alex Loostrom */
+form input {
+  display: block;
+  margin: 0.3rem auto;
+  border: 0.1rem #ffcc00 solid;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 0.6rem; /* space out text boxes to keep from stacking: Alex Loostrom */
 }
 ::placeholder {
-    color: black;
+  color: black;
 }
 /*added/used a div login-button to space the login button from bottom of input - Steve Woods*/
-.login-button{
-    margin-top: .4rem;
+.login-button {
+  margin-top: 0.4rem;
 }
 main {
-    padding: 10px; /* used to format main tag on screen */
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    display: flex; /* next two lines to center content */
-    justify-content: center;
-    overflow: hidden;
-    background: linear-gradient(#e2e2e2, dodgerblue);
-    border: black solid .12rem;
-  }
+  padding: 10px; /* used to format main tag on screen */
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  display: flex; /* next two lines to center content */
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(#e2e2e2, dodgerblue);
+  border: black solid 0.12rem;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+}
