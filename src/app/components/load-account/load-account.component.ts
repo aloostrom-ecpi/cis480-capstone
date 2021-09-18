@@ -31,21 +31,19 @@ export class LoadAccountComponent implements OnInit {
   ngOnChanges() {}
 
   async login(username : string, password : string) {
-    const success = await this.userService.login(username, password)
+    this.userService.login(username, password)
+      .subscribe( data => {
+        this.userService.data = data; 
+        localStorage.setItem("session", JSON.stringify(data));
+        
+        this.router.navigateByUrl('/')},
 
-    success.subscribe( data => {
-      this.userService.data = data; 
-      console.log("login successful", this.userService.data); 
-
-      localStorage.setItem("session", JSON.stringify(data));
-      console.log(localStorage.getItem("session"))
-      
-      this.router.navigateByUrl('/')},
-
-      err => {console.log(err, "Invalid login"); this.errorMsg = "Invalid login"});
+        err => {console.log(err, "Invalid login"); 
+        this.errorMsg = "Invalid login"});
 
   }
 
+  //clears session and sets isLoggedIn to false; -AI
   logout() {
     localStorage.removeItem("session")
     this.isLoggedIn = false;

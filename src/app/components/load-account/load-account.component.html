@@ -1,9 +1,12 @@
 <main>
   <div class="loginForm">
+    <!-- This is rendered if isLoggedIn is true --Aren -->
     <div *ngIf="isLoggedIn">
       <p>Hello {{ user.firstname }}</p>
       <input type="button" (click)="logout()" value="Log Out" />
     </div>
+
+    <!-- This is rendered if isLoggedIn is false --Aren -->
     <div *ngIf="!isLoggedIn">
       <h1>Login</h1>
       <form action="" method="POST">
