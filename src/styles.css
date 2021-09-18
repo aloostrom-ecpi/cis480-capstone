@@ -108,7 +108,7 @@ body {
   max-width: fit-content;
   line-height: 1;
   color: #000;
-  background: linear-gradient(#0099CC 20%, #e2e2e2);
+  background-image: url('./assets/background.png');
 }
 ol,
 ul {
