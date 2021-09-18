@@ -7,7 +7,7 @@
         or this one if we have the time
 */
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/User';
 import { Router } from '@angular/router';
@@ -39,6 +39,7 @@ export class LoadAccountComponent implements OnInit {
     if (success) {
       console.log("login successful")
       success.subscribe( data => {this.userService.data = data; console.log(this.userService.data)});
+
     } else {
       console.log("login failed")
     }

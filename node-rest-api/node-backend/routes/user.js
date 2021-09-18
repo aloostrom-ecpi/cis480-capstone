@@ -13,10 +13,11 @@ user.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
   User.findOne({ username: uname }, async (error, data) => {
-    if (error);
+    if (error) return error;
 
     const { _id, username, firstname, lastname } = data;
-    //compare pw with hashed pw
+
+    //compare pw with hashed pw and return id, username, firstname, and lastname
     bcrypt.compare(pw, data.password, (err, result) => {
       if (result) {
         res.status(200).json({ _id, username, firstname, lastname });
