@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Census } from './Census';
+import { ClosedPost, 
+  Contractors, 
+  OpenPosts, 
+  ReportedPosts, 
+  Reviews, 
+  User } from './crud.classes';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
