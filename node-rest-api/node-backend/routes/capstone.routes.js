@@ -21,15 +21,19 @@ let User = require("../model/User");
 capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
-  User.findOne({ username: uname }, async (error, data) => {
+  User.find({ username: uname }, async (error, data) => {
     if (error) return next(error);
 
+    if (!data.length) {
+      res.send("User does not exist");
+      return;
+    }
     //extract attributes from data
-    const { _id, username, firstname, lastname } = data;
+    const { _id, username, firstname, lastname } = data[0];
 
     //compare pw with hashed pw and return id, username, firstname, and lastname
-    bcrypt.compare(pw, data.password, (err, result) => {
-      if (err) return err;
+    bcrypt.compare(pw, data[0].password, (err, result) => {
+      if (!result) res.send("Invalid Password");
 
       if (result) {
         res.status(200).json({ _id, username, firstname, lastname });
