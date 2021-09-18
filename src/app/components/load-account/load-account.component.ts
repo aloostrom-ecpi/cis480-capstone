@@ -10,6 +10,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-load-account',
@@ -18,20 +19,24 @@ import { User } from 'src/app/models/User';
 })
 export class LoadAccountComponent implements OnInit {
   private user!: User;
+  isLoggedIn: Boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.user = this.userService.logout();
+  ngOnInit() {
+    this.user
   }
+
+  ngOnChanges() {}
 
   test() {
-    this.userService.login('owehaa5966', 'P@ssw0rd1').subscribe( res => {console.log(res); this.user = res})
+    this.userService.login('owehaa5966', 'P@ssw0rd1')
   }
 
-  login(username : string, password : string) {
+  async login(username : string, password : string) {
     console.log(username, password);
-    this.userService.login(username, password).subscribe( res => {console.log(res); this.user = res})
+    await this.userService.login(username, password);
+
   }
 
 }

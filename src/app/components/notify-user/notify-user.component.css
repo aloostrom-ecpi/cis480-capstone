@@ -1,0 +1,12 @@
+main {
+  padding: 10px; /* used to format main tag on screen */
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20px;
+  margin-bottom: 10%;
+  display: flex; /* next two lines to center content */
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(#e2e2e2, dodgerblue);
+  border: black solid .12rem;
+}

@@ -24,7 +24,7 @@ mongoose
   );
 
 const censusRoute = require("./routes/census.routes");
-const auth = require("./routes/Authenticate");
+const auth = require("./routes/user");
 
 const app = express();
 app.use(bodyParser.json());
@@ -42,7 +42,7 @@ app.use(
 
 // API root
 app.use("/api", censusRoute);
-app.use("/login", auth);
+app.use("/user", auth);
 
 // PORT
 const port = process.env.PORT || 8000;

@@ -1,9 +1,9 @@
+<<<<<<< HEAD
 <div class="loginForm">
   <h1>Login</h1>
   <form action="">
-    <input type="text" placeholder="Username:" #username />
-    <!-- [username]="user.username"  [password]="user.password" -->
-    <input type="text" placeholder="Password:" #password />
+    <input type="text" placeholder="Username:" />
+    <input type="text" placeholder="Password:" />
     <input
       type="button"
       value="Login"
@@ -15,3 +15,24 @@
     <a routerLinkActive="active" routerLink="../register-user">Here.</a>
   </p>
 </div>
+=======
+<main>
+  <div class="loginForm">
+    <h1>Login</h1>
+    <form action="">
+      <input type="text" placeholder="Username" />
+      <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
+      <input type="text" placeholder="Password" />
+      <div class="login-button">
+        <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
+        <input type="button" value="Login" />
+      </div>
+    </form>
+    <p>
+      Create Account click
+      <a routerLinkActive="active" routerLink="/register-user">Here.</a>
+    </p>
+  </div>
+</main>
+
+>>>>>>> 5d263775e7a3b54d2856fc54ee1c29af9c357d39
