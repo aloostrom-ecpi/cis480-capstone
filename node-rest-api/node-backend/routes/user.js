@@ -9,17 +9,24 @@ const user = express.Router();
 let User = require("../model/User");
 
 // Get user info
-Authenticate.route("/:uname&:pw").get((req, res) => {
+user.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
   User.findOne({ username: uname }, async (error, data) => {
-    if (error) data.send;
-    //hash pw
+    if (error);
 
+    const { _id, username, firstname, lastname } = data;
+    //compare pw with hashed pw
     bcrypt.compare(pw, data.password, (err, result) => {
-      if (result) res.status(200).json(data);
+      if (result) {
+        res.status(200).json({ _id, username, firstname, lastname });
+      }
     });
   });
 });
 
-module.exports = Authenticate;
+user.route("/suspend/:id").get((req, res) => {
+  const id = req.params.id;
+});
+
+module.exports = user;

@@ -10,9 +10,8 @@ import { User } from '../models/User';
 })
 export class UserService {
   private httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  private loginURI: string = `http://localhost:8000/login`;
-  private data!: any;
-
+  private loginURI: string = `http://localhost:8000/user`;
+  data!: any;
 
   constructor(private client: HttpClient) { }
 
@@ -35,10 +34,10 @@ export class UserService {
     }
   }
 
-  login(username: string, pw: string) {
+   login(username: string, pw: string) : Observable <any> {
+
     //get user data from db and pass on to this.data
-    this.client.get(`${this.loginURI}/${username}&${pw}`)
-      .subscribe(res => {this.data = res; console.log(this.data); console.log(this.getID(), this.getNotifications())});
+    return this.client.get(`${this.loginURI}/authenticate/${username}&${pw}`);
   }
   
   getID(): string {
@@ -59,6 +58,12 @@ export class UserService {
 
   getNotifications(): Array<{}> {
     return this.data.notification;
+  }
+
+  suspendUser(id: string){
+    if (this.data.role === 2) {
+
+    }
   }
 
 

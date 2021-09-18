@@ -19,7 +19,6 @@ import { Router } from '@angular/router';
 })
 export class LoadAccountComponent implements OnInit {
   private user!: User;
-  isLoggedIn: Boolean = false;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -35,8 +34,14 @@ export class LoadAccountComponent implements OnInit {
 
   async login(username : string, password : string) {
     console.log(username, password);
-    await this.userService.login(username, password);
+    const success = await this.userService.login(username, password)
 
+    if (success) {
+      console.log("login successful")
+      success.subscribe( data => {this.userService.data = data; console.log(this.userService.data)});
+    } else {
+      console.log("login failed")
+    }
   }
 
 }

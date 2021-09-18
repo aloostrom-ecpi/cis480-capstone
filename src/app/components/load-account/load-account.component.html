@@ -1,31 +1,17 @@
-<<<<<<< HEAD
-<div class="loginForm">
-  <h1>Login</h1>
-  <form action="">
-    <input type="text" placeholder="Username:" />
-    <input type="text" placeholder="Password:" />
-    <input
-      type="button"
-      value="Login"
-      (click)="login(username.value, password.value)"
-    />
-  </form>
-  <p>
-    Create Account click
-    <a routerLinkActive="active" routerLink="../register-user">Here.</a>
-  </p>
-</div>
-=======
 <main>
   <div class="loginForm">
     <h1>Login</h1>
-    <form action="">
-      <input type="text" placeholder="Username" />
+    <form action="" method="POST">
+      <input type="text" placeholder="Username" name="username" #username />
       <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
-      <input type="text" placeholder="Password" />
+      <input type="text" placeholder="Password" name="password" #password />
       <div class="login-button">
         <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
-        <input type="button" value="Login" />
+        <input
+          type="submit"
+          value="Login"
+          (click)="login(username.value, password.value)"
+        />
       </div>
     </form>
     <p>
@@ -34,5 +20,3 @@
     </p>
   </div>
 </main>
-
->>>>>>> 5d263775e7a3b54d2856fc54ee1c29af9c357d39
