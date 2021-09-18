@@ -21,12 +21,13 @@ let User = require("../model/User");
 
 //get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find((error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
+    OpenPosts.find((error, data) => {
+        if (error) {
+            return next(error);
+            console.log(error);
+        } else {
+            res.json(data);
+        }
   });
 });
 
@@ -53,13 +54,14 @@ capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
 
 //get all open posts for a user --PAL
 capstoneRoute.route("/open-posts/:userId").get((req, res) => {
-  OpenPosts.find({ author: req.params.userId }, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
-  });
+    OpenPosts.find({author: req.params.userId}, (error, data) => {
+        if (error) {
+            return next(error);
+            console.log(error);
+        } else {
+            res.json(data);
+        }
+    });
 });
 
 //Leave this at the end of the file so we can export the complete
