@@ -16,7 +16,8 @@ let User = require("../model/User");
 //^^^^^^^PAL^^^^^^^
 
 //Open Posts
-//get all open posts
+
+//get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
   OpenPosts.find((error, data) => {
     if (error) {
@@ -27,6 +28,7 @@ capstoneRoute.route("/open-posts").get((req, res) => {
   });
 });
 
+<<<<<<< HEAD
 user.route("/authenticate/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
@@ -39,6 +41,18 @@ user.route("/authenticate/:uname&:pw").get((req, res) => {
     //compare pw with hashed pw and return id, username, firstname, and lastname
     bcrypt.compare(pw, data.password, (err, result) => {
       if (err) return err;
+=======
+//get all open posts for a user --PAL
+capstoneRoute.route("/open-posts/:userId").get((req, res) => {
+    OpenPosts.find({author: req.params.userId}, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data);
+        }
+    });
+});
+>>>>>>> 30fa9de144aa3b2a36dd867426f4118913505b13
 
       if (result) {
         res.status(200).json({ _id, username, firstname, lastname });
