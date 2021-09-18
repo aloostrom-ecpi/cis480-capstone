@@ -22,6 +22,7 @@ capstoneRoute.route("/open-posts").get((req, res) => {
     OpenPosts.find((error, data) => {
         if (error) {
             return next(error);
+            console.log(error);
         } else {
             res.json(data);
         }
@@ -33,6 +34,7 @@ capstoneRoute.route("/open-posts/:userId").get((req, res) => {
     OpenPosts.find({author: req.params.userId}, (error, data) => {
         if (error) {
             return next(error);
+            console.log(error);
         } else {
             res.json(data);
         }
