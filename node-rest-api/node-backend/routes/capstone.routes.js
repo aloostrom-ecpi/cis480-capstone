@@ -1,5 +1,7 @@
 //API runs as Express. Pull it into the definition
 const express = require("express");
+const bcrypt = require("bcrypt");
+
 const app = express();
 
 //Make the thing an API and name it
@@ -26,7 +28,28 @@ capstoneRoute.route("/open-posts").get((req, res) => {
         } else {
             res.json(data);
         }
+  });
+});
+
+//Authentication
+capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
+  const { uname, pw } = req.params;
+
+  User.findOne({ username: uname }, async (error, data) => {
+    if (error) return next(error);
+
+    //extract attributes from data
+    const { _id, username, firstname, lastname } = data;
+
+    //compare pw with hashed pw and return id, username, firstname, and lastname
+    bcrypt.compare(pw, data.password, (err, result) => {
+      if (err) return err;
+
+      if (result) {
+        res.status(200).json({ _id, username, firstname, lastname });
+      }
     });
+  });
 });
 
 //get all open posts for a user --PAL
@@ -40,7 +63,6 @@ capstoneRoute.route("/open-posts/:userId").get((req, res) => {
         }
     });
 });
-
 
 //Leave this at the end of the file so we can export the complete
 //  definition of the API
