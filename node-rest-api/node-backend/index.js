@@ -23,7 +23,8 @@ mongoose
     }
   );
 
-const censusRoute = require("./routes/census.routes");
+//changed
+const capstoneRoute = require("./routes/capstone.routes");
 
 const app = express();
 app.use(bodyParser.json());
@@ -40,7 +41,7 @@ app.use(
 );
 
 // API root
-app.use("/api", censusRoute);
+app.use("/api", capstoneRoute);
 
 // PORT
 const port = process.env.PORT || 8000;
