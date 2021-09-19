@@ -4,15 +4,21 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 70%;
   padding: 10px;
   margin-top: 10px;
   overflow: hidden;
   background: linear-gradient(#e2e2e2, dodgerblue);
-  border: black solid .12rem;
+  border: black solid 0.12rem;
 }
 
 aside {
   padding: 25px;
   width: 15%;
+}
+
+#mainPost {
 }

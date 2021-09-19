@@ -1,0 +1,25 @@
+.container {
+  width: 900px;
+  height: 200px;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: papayawhip;
+  height: 15%;
+}
+
+.header div {
+  margin-left: 20px;
+}
+
+.body {
+  height: 85%;
+}
+
+#message {
+  margin: 20px;
+}

@@ -9,6 +9,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { ContractorService } from 'src/app/services/contractor.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,10 +20,11 @@ import { Router } from '@angular/router';
 export class LoadAccountComponent implements OnInit {
   errorMsg?: string;
   isLoggedIn: boolean = localStorage.getItem("session") ? true : false;
+  isContractor: boolean = false;
   user = this.isLoggedIn ? JSON.parse(localStorage.session) : '';
   
 
-  constructor(private userService: UserService, private router: Router) { 
+  constructor(private userService: UserService, private contactorService: ContractorService, private router: Router) { 
   
   }
 
@@ -31,22 +33,33 @@ export class LoadAccountComponent implements OnInit {
   ngOnChanges() {}
 
   async login(username : string, password : string) {
-    this.userService.login(username, password)
-      .subscribe( data => {
-        this.userService.data = data; 
-        localStorage.setItem("session", JSON.stringify(data));
-        
-        this.router.navigateByUrl('/')},
+    let success;
+
+    if (!this.isContractor){
+     success = await this.userService.login(username, password)
+    } else {
+     success = await this.contactorService.login(username, password)
+    }
+    
+    success.subscribe( data => {
+      this.userService.data = data; 
+      localStorage.setItem("session", JSON.stringify(data));
+      
+      this.router.navigateByUrl('/')},
+
 
         err => {console.log(err, "Invalid login"); 
         this.errorMsg = "Invalid login"});
 
   }
 
-  //clears session and sets isLoggedIn to false; -AI
-  logout() {
+  logout() :void {
     localStorage.removeItem("session")
     this.isLoggedIn = false;
+  }
+
+  toggleContractor() : void {
+    this.isContractor = !this.isContractor
   }
 
 }
