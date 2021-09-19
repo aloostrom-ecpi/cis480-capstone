@@ -14,6 +14,18 @@
         <input type="text" placeholder="Username" name="username" #username />
         <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
         <input type="text" placeholder="Password" name="password" #password />
+
+        <!-- This part contains Are you a contractor toggle label and button -->
+        <div id="toggle-div">
+          <div>Are you a contractor?</div>
+          <div
+            class="toggle"
+            (click)="toggleContractor()"
+            [ngClass]="isContractor ? 'userOn' : ''"
+          >
+            <div class="toggle-button"></div>
+          </div>
+        </div>
         <div class="login-button">
           <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
           <input
