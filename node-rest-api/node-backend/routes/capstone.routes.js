@@ -24,7 +24,7 @@ capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
   User.find({ username: uname }, async (error, data) => {
     if (error) return next(error);
 
-    if (!data.length) {
+    if (!data.length || data[0].suspended) {
       res.send("User not found");
       return;
     }
@@ -49,7 +49,7 @@ capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
   Contractors.find({ username: uname }, async (error, data) => {
     if (error) return next(error);
 
-    if (!data.length) {
+    if (!data.length || data[0].suspended) {
       res.send("User not found");
       return;
     }
