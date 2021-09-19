@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container" *ngFor="let openPost of OpenPosts; let i = index">
   <div class="header">
     <div id="title">title goes here</div>
-    <div id="details">author details go here</div>
+    <div id="details">{{openPost.author}}</div>
   </div>
   <div class="body">
-    <div id="message">message goes here</div>
+    <div id="message">{{openPost.body}}</div>
+    <div id="responses">Sub posts go here</div>
   </div>
 </div>
