@@ -37,7 +37,7 @@ export class UserService {
    login(username: string, pw: string) : Observable <any> {
 
     //get user data from db and pass on to this.data
-    return this.client.get(`${this.loginURI}/authenticate/${username}&${pw}`);
+    return this.client.get(`${this.loginURI}/authenticate/user/${username}&${pw}`);
   }
   
   getID(): string {

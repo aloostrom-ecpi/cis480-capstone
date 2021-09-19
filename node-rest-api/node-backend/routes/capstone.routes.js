@@ -17,15 +17,40 @@ let User = require("../model/User");
 
 //^^^^^^^PAL^^^^^^^
 
-//Authentication -- Aren
-capstoneRoute.route("/authenticate/:uname&:pw").get((req, res) => {
+//User Authentication -- Aren
+capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
   const { uname, pw } = req.params;
 
   User.find({ username: uname }, async (error, data) => {
     if (error) return next(error);
 
     if (!data.length) {
-      res.send("User does not exist");
+      res.send("User not found");
+      return;
+    }
+    //extract attributes from data
+    const { _id, username, firstname, lastname } = data[0];
+
+    //compare pw with hashed pw and return id, username, firstname, and lastname
+    bcrypt.compare(pw, data[0].password, (err, result) => {
+      if (!result) res.send("Invalid Password");
+
+      if (result) {
+        res.status(200).json({ _id, username, firstname, lastname });
+      }
+    });
+  });
+});
+
+//Contractor Authentication --Aren
+capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
+  const { uname, pw } = req.params;
+
+  Contractors.find({ username: uname }, async (error, data) => {
+    if (error) return next(error);
+
+    if (!data.length) {
+      res.send("User not found");
       return;
     }
     //extract attributes from data
