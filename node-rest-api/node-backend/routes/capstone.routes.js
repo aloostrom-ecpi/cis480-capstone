@@ -72,11 +72,17 @@ Open Posts
 ***********/
 //get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find((error, data) => {
+  OpenPosts.find({ isParent: true},(error, data) => {
     if (error) {
       return next(error);
       console.log(error);
     } else {
+      data.forEach(element =>
+        //replace the userId with the username
+        User.find({_id: element.author}, 'username -_id',(err, doc) => {
+          console.log(element.author + " will be replaced with " + doc)
+        })
+      )
       res.json(data);
     }
   });

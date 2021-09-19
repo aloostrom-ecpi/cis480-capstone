@@ -29,6 +29,10 @@ export class CrudService {
   GetAllCensus() {
     return this.httpClient.get(`${this.REST_API}`);
   }
+
+  GetAllOpenPosts() {
+    return this.httpClient.get(`${this.REST_API}/open-posts`);
+  }
  
   //Get a single census
   GetCensus(id: any): Observable<any> {
@@ -70,6 +74,11 @@ export class CrudService {
       )
   }
 
+
+  /*
+   * Dont modify this so we can troubleshoot errors we come across
+   *   related to CRUD ops on Mongo
+   */
   // Error 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

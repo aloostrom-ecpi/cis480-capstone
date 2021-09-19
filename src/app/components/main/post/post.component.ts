@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  OpenPosts:any = [];
+  
+  constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+    this.crudService.GetAllOpenPosts().subscribe(res => {
+      console.log(res)
+      this.OpenPosts = res;
+    })
   }
-
 }
