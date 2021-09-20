@@ -15,7 +15,7 @@ let ReportedPosts = require("../model/ReportedPosts");
 let Reviews = require("../model/Reviews");
 let User = require("../model/User");
 
-//^^^^^^^PAL^^^^^^^
+//^^AREN^^
 
 //User Authentication -- Aren
 capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
@@ -67,6 +67,50 @@ capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
   });
 });
 
+//Username finder - for user
+capstoneRoute.route("/user/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  User.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
+capstoneRoute.route("/contractor/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  Contractors.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
+capstoneRoute.route("/user/role/:id").get((req, res) => {
+  const id = req.params.id;
+
+  User.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { role } = data;
+      res.json(role);
+    }
+  });
+});
+
+//
+
+//^^^^^^^PAL^^^^^^^
+
 /**********
 Open Posts
 ***********/
@@ -90,6 +134,19 @@ capstoneRoute.route("/open-posts/:userId").get((req, res) => {
       console.log(error);
     } else {
       res.json(data);
+    }
+  });
+});
+
+capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
+  console.log(req.params.id);
+
+  OpenPosts.findByIdAndRemove(req.params.id, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+      console.log(`${req.params.id} has been deleted`);
     }
   });
 });

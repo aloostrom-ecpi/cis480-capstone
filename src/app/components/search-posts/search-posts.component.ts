@@ -9,6 +9,9 @@
 */
 
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/service/crud.classes';
+import { UserService } from 'src/app/service/user.service';
+import { ContractorService } from 'src/app/service/contractor.service';
 
 @Component({
   selector: 'app-search-posts',
@@ -17,9 +20,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPostsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService : UserService, private contractorService : ContractorService) { }
 
   ngOnInit(): void {
+    this.userService.getActiveUserRole();
   }
 
 }
