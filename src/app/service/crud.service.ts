@@ -9,6 +9,7 @@ import { ClosedPost,
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { UserService } from './user.service';
 
  
 @Injectable({
@@ -23,7 +24,7 @@ export class CrudService {
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
  
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private userService: UserService) { }
  
   // Get all census
   GetAllCensus() {
@@ -32,6 +33,11 @@ export class CrudService {
 
   GetAllOpenPosts() {
     return this.httpClient.get(`${this.REST_API}/open-posts`);
+  }
+
+  DeletePost(id: string) {
+    console.log(id)
+    this.userService.getActiveUserRole().subscribe(role => { if (role === 2) { this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()}}) 
   }
  
   //Get a single census

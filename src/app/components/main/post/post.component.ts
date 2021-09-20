@@ -9,6 +9,7 @@ import { CrudService } from 'src/app/service/crud.service';
 export class PostComponent implements OnInit {
 
   OpenPosts:any = [];
+  date:string = "";
   
   constructor(private crudService: CrudService) { }
 
@@ -18,4 +19,5 @@ export class PostComponent implements OnInit {
       this.OpenPosts = res;
     })
   }
+
 }
