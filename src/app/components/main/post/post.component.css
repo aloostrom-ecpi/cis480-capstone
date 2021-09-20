@@ -7,9 +7,11 @@
 
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background: papayawhip;
   height: 15%;
+  width: 100%;
 }
 
 .header div {
@@ -22,4 +24,13 @@
 
 #message {
   margin: 20px;
+}
+
+#post-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-right: 5px;
 }
