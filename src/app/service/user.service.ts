@@ -62,7 +62,6 @@ export class UserService {
   getActiveUserRole() : Observable<any> {
       const {_id} = JSON.parse(localStorage.session)
       return this.client.get(`${this.loginURI}/user/role/${_id}`)
-
   }
 
   getNotifications(id: string): Array<{}> {

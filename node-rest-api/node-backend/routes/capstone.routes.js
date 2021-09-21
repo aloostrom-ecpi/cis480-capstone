@@ -81,6 +81,7 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
   });
 });
 
+//Username finder - for contractor
 capstoneRoute.route("/contractor/username/:id").get((req, res) => {
   const id = req.params.id;
 
@@ -117,7 +118,7 @@ Open Posts
 //get all open posts --PAL
 
 capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find({isParent: true}, (error, data) => {
+  OpenPosts.find({ isParent: true }, (error, data) => {
     if (error) {
       return next(error);
       console.log(error);
@@ -167,8 +168,8 @@ capstoneRoute.route("/open-posts").get((req, res) => {
           return doc[0].username;
         })
       )*/
-      //Neither does this...
-      /*
+//Neither does this...
+/*
       data.foreach(function(part, index) {
         User.find({_id: this[index].author}, 'username', (err, doc) => {
           if (err) return next(err);
