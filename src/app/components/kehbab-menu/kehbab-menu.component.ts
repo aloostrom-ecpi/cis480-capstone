@@ -19,10 +19,10 @@ export class KehbabMenuComponent implements OnInit {
 
   ngOnInit( ): void {
 
-    
+    //if user is loggedin, check authority on post
     if (this.session) {
       this.isAuthorized = JSON.parse(localStorage["session"])._id === this.authorID ? true : false;
-      this.userService.getActiveUserRole().subscribe( role => { if (role === 2) this.isAuthorized = true; console.log(this.isAuthorized) })}
+      this.userService.getActiveUserRole().subscribe( role => { if (role === 2) this.isAuthorized = true})}
     
   }
 
