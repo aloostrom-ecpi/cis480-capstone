@@ -40,29 +40,38 @@ export class UserService {
     return this.client.get(`${this.loginURI}/authenticate/user/${username}&${pw}`);
   }
   
-  getID(): string {
+  //would we need this?
+  /* 
+  getID(username: string): string {
     return this.data._id
-  }
+  } 
+  */
 
-  getFirstName(): string {
+  getFirstName(id: string): string {
     return this.data.firstname;
   }
 
-  getLastName(): string {
+  getLastName(id: string): string {
     return this.data.lastname;
   }
 
-  getUserName(): string {
-    return this.data.username;
+  getUserName(id: string): Observable<any> {
+    return this.client.get(`${this.loginURI}/user/username/${id}`)
   }
 
-  getNotifications(): Array<{}> {
+  getActiveUserRole() : Observable<any> {
+      const {_id} = JSON.parse(localStorage.session)
+      return this.client.get(`${this.loginURI}/user/role/${_id}`)
+
+  }
+
+  getNotifications(id: string): Array<{}> {
     return this.data.notification;
   }
 
-  suspendUser(id: string){
+  suspendUser(id: string) : void {
     if (this.data.role === 2) {
-
+      //suspend id
     }
   }
 }

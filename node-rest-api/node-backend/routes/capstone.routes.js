@@ -15,7 +15,7 @@ let ReportedPosts = require("../model/ReportedPosts");
 let Reviews = require("../model/Reviews");
 let User = require("../model/User");
 
-//^^^^^^^PAL^^^^^^^
+//^^AREN^^
 
 //User Authentication -- Aren
 capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
@@ -67,38 +67,60 @@ capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
   });
 });
 
+//Username finder - for user
+capstoneRoute.route("/user/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  User.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
+capstoneRoute.route("/contractor/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  Contractors.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
+capstoneRoute.route("/user/role/:id").get((req, res) => {
+  const id = req.params.id;
+
+  User.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { role } = data;
+      res.json(role);
+    }
+  });
+});
+
+//
+
+//^^^^^^^PAL^^^^^^^
+
 /**********
 Open Posts
 ***********/
-//get all open posts --PAL/*
+//get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find({ isParent: true},(error, data) => {
+  OpenPosts.find((error, data) => {
     if (error) {
       return next(error);
       console.log(error);
     } else {
-      //this doesnt work... --PAL
-      // check out https://stackoverflow.com/questions/14504385/why-cant-you-modify-the-data-returned-by-a-mongoose-query-ex-findbyid
-      /*data.forEach(element =>
-        //replace the userId with the username
-        element.author = User.find({_id: element.author},'username', (err, doc) => {
-          if (err) return next(err);
-          const {_id, username} = doc[0];
-          console.log("we'll replace " + element.author + " with "+ doc[0].username);
-          return doc[0].username;
-        })
-      )*/
-      //Neither does this...
-      /*
-      data.foreach(function(part, index) {
-        User.find({_id: this[index].author}, 'username', (err, doc) => {
-          if (err) return next(err);
-          else {
-            const {_id, username} = doc[0];
-            this[index].author = doc[0].username;
-          }
-        })
-      }, data)*/
       res.json(data);
     }
   });
@@ -116,16 +138,18 @@ capstoneRoute.route("/open-posts/:userId").get((req, res) => {
   });
 });
 
-capstoneRoute.route("/users").get((req, res) => {
-  User.find({}, 'username', (error, data) => {
+capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
+  console.log(req.params.id);
+
+  OpenPosts.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
-      console.log(error);
     } else {
       res.json(data);
+      console.log(`${req.params.id} has been deleted`);
     }
-  })
-})
+  });
+});
 
 //Leave this at the end of the file so we can export the complete
 //  definition of the API

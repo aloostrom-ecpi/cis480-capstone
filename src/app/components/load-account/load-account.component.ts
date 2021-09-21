@@ -60,6 +60,7 @@ export class LoadAccountComponent implements OnInit {
 
   toggleContractor() : void {
     this.isContractor = !this.isContractor
+    localStorage.setItem("isContractor", JSON.stringify(this.isContractor));
   }
 
 }

@@ -24,4 +24,8 @@ export class ContractorService {
     //get user data from db and pass on to this.data
     return this.client.get(`${this.loginURI}/authenticate/contractor/${username}&${pw}`);
   }
+
+  getUserName(id: string): Observable<any> {
+    return this.client.get(`${this.loginURI}/contractor/username/${id}`)
+  }
 }
