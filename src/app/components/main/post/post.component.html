@@ -4,7 +4,10 @@
       <div id="details">{{ openPost.author }}</div>
     </div>
     <div class="menu">
-      <app-kehbab-menu [id]="openPost._id"></app-kehbab-menu>
+      <app-kehbab-menu
+        [postID]="openPost._id"
+        [authorID]="openPost.author"
+      ></app-kehbab-menu>
     </div>
   </div>
   <div class="body">

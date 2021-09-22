@@ -36,8 +36,7 @@ export class CrudService {
   }
 
   DeletePost(id: string) {
-    console.log(id)
-    this.userService.getActiveUserRole().subscribe(role => { if (role === 2) { this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()}}) 
+    this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()
   }
  
   //Get a single census
