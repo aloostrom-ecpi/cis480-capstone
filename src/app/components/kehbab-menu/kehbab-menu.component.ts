@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class KehbabMenuComponent implements OnInit {
   @Input() postID: string = '';
   @Input() authorID: string = '';
-  private isAuthorized: boolean = false;
+  isAuthorized: boolean = false;
   private session = localStorage.session;
 
   constructor(private router: Router, private crudService: CrudService, private userService: UserService) { }
