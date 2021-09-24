@@ -29,7 +29,14 @@ export class LoadAccountComponent implements OnInit {
     if (localStorage.getItem("session") == null){
       console.log("attempting to redirect");
       this.ngZone.run(() => this.router.navigateByUrl('login-user'));
-    }
+    } else {
+        try{
+          const {username} = JSON.parse(localStorage.session)
+          console.log("Username is: "+username)
+        }catch{
+          console.log("sessionUser not defined. ")
+        }
+      }
   }
 
   
