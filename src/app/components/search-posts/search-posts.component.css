@@ -1,17 +1,20 @@
 main {
   padding: 10px; /* used to format main tag on screen */
-  margin-left: 20%;
-  margin-right: 20%;
   margin-top: 20px;
-  margin-bottom: 10%;
   display: flex; /* next two lines to center content */
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(#e2e2e2, dodgerblue);
   border: black solid 0.12rem;
+  width: 80%;
 }
 
 h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 1.7rem;
+}
+.container {
   display: flex;
   justify-content: center;
 }
@@ -44,13 +47,18 @@ input[type="text"]:hover {
 
 .radio-grp {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
 .radio-grp div {
   display: flex;
   justify-content: center;
+  margin: 5px 0px 5px 15px;
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
 }
 
 #go-btn {
@@ -69,4 +77,8 @@ input[type="text"]:hover {
 
 #go-btn:hover {
   cursor: pointer;
+}
+
+#posts {
+  min-height: 200px;
 }

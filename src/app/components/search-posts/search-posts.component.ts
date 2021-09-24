@@ -12,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/service/crud.classes';
 import { UserService } from 'src/app/service/user.service';
 import { ContractorService } from 'src/app/service/contractor.service';
+import { CrudService } from 'src/app/service/crud.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-posts',
@@ -20,11 +22,25 @@ import { ContractorService } from 'src/app/service/contractor.service';
 })
 export class SearchPostsComponent implements OnInit {
   isActive: boolean = true;
+  private category: string = 'author';
+  openPost: any = [];
 
-  constructor(private userService : UserService, private contractorService : ContractorService) { }
+
+  constructor(private userService : UserService, private contractorService : ContractorService, private crudService: CrudService) { }
 
   ngOnInit(): void {
-    this.userService.getActiveUserRole();
+  }
+
+  changeCategory(category: string) {
+    const categories = ["Author", "Post"]
+
+    if (categories.includes(category)) this.category = category;
+  }
+
+  search(query: string) {
+    console.log("checkpoint",query, this.category)
+    //crud search
+    this.crudService.Search(this.category, query).subscribe(res =>  this.openPost = res)
   }
 
 }

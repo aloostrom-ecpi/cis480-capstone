@@ -38,6 +38,11 @@ export class CrudService {
   DeletePost(id: string) {
     this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()
   }
+
+  Search(field: string, query: string) {
+    console.log(`${this.REST_API}/search/${field}/${query}`)
+    return this.httpClient.get(`${this.REST_API}/search/${field}/${query}`);
+  }
  
   //Get a single census
   GetCensus(id: any): Observable<any> {
