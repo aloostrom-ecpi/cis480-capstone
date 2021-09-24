@@ -19,6 +19,7 @@ import { ContractorService } from 'src/app/service/contractor.service';
   styleUrls: ['./search-posts.component.css']
 })
 export class SearchPostsComponent implements OnInit {
+  isActive: boolean = true;
 
   constructor(private userService : UserService, private contractorService : ContractorService) { }
 

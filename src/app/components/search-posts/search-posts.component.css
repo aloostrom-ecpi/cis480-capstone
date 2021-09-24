@@ -8,5 +8,65 @@ main {
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(#e2e2e2, dodgerblue);
-  border: black solid .12rem;
+  border: black solid 0.12rem;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.searchbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+input[type="text"] {
+  height: 25px;
+  width: 300px;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid gray;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+input[type="text"]:hover {
+  outline: none;
+  border: 1px solid black;
+}
+
+.radio-grp {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.radio-grp div {
+  display: flex;
+  justify-content: center;
+}
+
+#go-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid gray;
+  margin-left: 20px;
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  font-size: 13px;
+  background: rgba(186, 215, 255, 0.8);
+}
+
+#go-btn:hover {
+  cursor: pointer;
 }
