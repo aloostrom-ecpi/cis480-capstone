@@ -10,6 +10,7 @@ import { MyPostsComponent } from './components/my-posts/my-posts.component';
 import { NotifyUserComponent } from './components/notify-user/notify-user.component';
 import { LoadAccountComponent } from './components/load-account/load-account.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'add-census', component: AddCensusComponent},
   { path: 'remove-census/:id', component: RemoveCensusComponent},
   { path: 'search', component: SearchPostsComponent },
-  { path: 'register-user', component: RegisterUserComponent }
+  { path: 'register-user', component: RegisterUserComponent },
+  { path: 'login-user', component: LoginUserComponent}
 ];
 
 @NgModule({
