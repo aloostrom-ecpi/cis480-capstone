@@ -1,0 +1,96 @@
+.loginForm {
+    width: 100vmax;
+    height: 100%;
+    text-align: center;
+    padding: 5rem 0px;
+    font-size: 1.8rem;
+    color: black;
+  }
+  .loginForm a {
+    text-decoration: underline;
+    color: #ffcc00;
+  }
+  form {
+    width: 20%;
+    border: 0.2rem #ffcc00 solid;
+    border-radius: 0.4rem;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    align-content: center;
+    width: fit-content; /*re-sized form borders to fit test box contents: Alex Loostrom*/
+  }
+  form input {
+    display: block;
+    margin: 0.3rem auto;
+    border: 0.1rem #ffcc00 solid;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 0.6rem; /* space out text boxes to keep from stacking: Alex Loostrom */
+  }
+  ::placeholder {
+    color: black;
+  }
+  /*added/used a div login-button to space the login button from bottom of input - Steve Woods*/
+  .login-button {
+    margin-top: 0.4rem;
+  }
+  main {
+    padding: 10px; /* used to format main tag on screen */
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex; /* next two lines to center content */
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(#e2e2e2, dodgerblue);
+    border: black solid 0.12rem;
+  }
+  
+  /* --- CHANGES MADE BY AREN PAST THIS POINT --- */
+  
+  /* error message */
+  .error {
+    color: red;
+    font-size: 1rem;
+  }
+  
+  #toggle-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* container for toggle */
+  .toggle {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    width: 16px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+    background: rgba(238, 67, 67, 0.7);
+    border-radius: 15px;
+    padding: 0.3px 1px;
+    cursor: pointer;
+    margin: 2px 0px 0px 15px;
+  }
+  
+  .userOn {
+    justify-content: end;
+    background: rgba(80, 126, 66, 0.7);
+  }
+  
+  /* circle inside toggle */
+  .toggle-button {
+    height: 7px;
+    width: 7px;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background: rgba(214, 210, 193, 0.7);
+  }
+  

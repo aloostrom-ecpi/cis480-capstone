@@ -1,45 +1,12 @@
 <main>
-  <div class="loginForm">
-    <!-- This is rendered if isLoggedIn is true --Aren -->
-    <div *ngIf="isLoggedIn">
-      <p>Hello {{ user.firstname }}</p>
-      <input type="button" (click)="logout()" value="Log Out" />
+    <div class="load-account">
+        <p>THIS IS THE LOAD ACCOUNT PAGE!!!!!!!!!!!!!!!!!!!!!! Tested with 10,000 lorem it
+            worked. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            quae accusamus in, asperiores deleniti praesentium inventore ea veritatis
+            eos qui impedit molestiae optio explicabo rerum voluptatibus magnam veniam
+            rem! Tempore! Et atque debitis iure error, soluta sapiente voluptatem quis
+            ipsum rem reiciendis temporibus praesentium quod possimus omnis corporis
+            veniam corrupti, voluptatum repellat fugit inventore fugiat minus quos
+            odio. Doloremque, minima.</p>
     </div>
-
-    <!-- This is rendered if isLoggedIn is false --Aren -->
-    <div *ngIf="!isLoggedIn">
-      <h1>Login</h1>
-      <form action="" method="POST">
-        <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
-        <input type="text" placeholder="Username" name="username" #username />
-        <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
-        <input type="text" placeholder="Password" name="password" #password />
-
-        <!-- This part contains Are you a contractor toggle label and button -->
-        <div id="toggle-div">
-          <div>Are you a contractor?</div>
-          <div
-            class="toggle"
-            (click)="toggleContractor()"
-            [ngClass]="isContractor ? 'userOn' : ''"
-          >
-            <div class="toggle-button"></div>
-          </div>
-        </div>
-        <div class="login-button">
-          <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
-          <input
-            type="submit"
-            value="Login"
-            (click)="login(username.value, password.value)"
-          />
-          <!-- #username passess value to login(username.value, password.value -->
-        </div>
-      </form>
-      <p>
-        Create Account click
-        <a routerLinkActive="active" routerLink="/register-user">Here.</a>
-      </p>
-    </div>
-  </div>
 </main>

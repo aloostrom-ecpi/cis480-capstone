@@ -7,9 +7,7 @@
         or this one if we have the time
 */
 
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../service/user.service';
-import { ContractorService } from '../../service/contractor.service';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,49 +16,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./load-account.component.css']
 })
 export class LoadAccountComponent implements OnInit {
-  errorMsg?: string;
-  isLoggedIn: boolean = localStorage.getItem("session") ? true : false;
-  isContractor: boolean = false;
-  user = this.isLoggedIn ? JSON.parse(localStorage.session) : '';
-  
 
-  constructor(private userService: UserService, private contactorService: ContractorService, private router: Router) { 
+  constructor(
+    private router: Router,
+    private ngZone: NgZone) { 
   
   }
 
-  ngOnInit() { }
-
-  ngOnChanges() {}
-
-  async login(username : string, password : string) {
-    let success;
-
-    if (!this.isContractor){
-     success = await this.userService.login(username, password)
-    } else {
-     success = await this.contactorService.login(username, password)
+  
+  ngOnInit(): void { 
+    console.log("Checking session");
+    if (localStorage.getItem("session") == null){
+      console.log("attempting to redirect");
+      this.ngZone.run(() => this.router.navigateByUrl('login-user'));
     }
-    
-    success.subscribe( data => {
-      this.userService.data = data; 
-      localStorage.setItem("session", JSON.stringify(data));
-      
-      this.router.navigateByUrl('/')},
-
-
-        err => {console.log(err, "Invalid login"); 
-        this.errorMsg = "Invalid login"});
-
   }
 
-  logout() :void {
-    localStorage.removeItem("session")
-    this.isLoggedIn = false;
-  }
-
-  toggleContractor() : void {
-    this.isContractor = !this.isContractor
-    localStorage.setItem("isContractor", JSON.stringify(this.isContractor));
-  }
-
+  
 }
