@@ -7,7 +7,6 @@ import { CrudService } from 'src/app/service/crud.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
   OpenPosts:any = [];
   date:string = "";
   

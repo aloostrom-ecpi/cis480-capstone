@@ -2,7 +2,8 @@ main {
   padding: 10px; /* used to format main tag on screen */
   margin-top: 20px;
   display: flex; /* next two lines to center content */
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   overflow: hidden;
   background: linear-gradient(#e2e2e2, dodgerblue);
   border: black solid 0.12rem;
@@ -81,4 +82,5 @@ input[type="text"]:hover {
 
 #posts {
   min-height: 200px;
+  width: 70%;
 }

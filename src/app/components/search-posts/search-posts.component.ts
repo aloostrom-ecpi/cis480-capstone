@@ -21,7 +21,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search-posts.component.css']
 })
 export class SearchPostsComponent implements OnInit {
-  isActive: boolean = true;
   private category: string = 'author';
   openPost: any = [];
 
@@ -40,7 +39,12 @@ export class SearchPostsComponent implements OnInit {
   search(query: string) {
     console.log("checkpoint",query, this.category)
     //crud search
-    this.crudService.Search(this.category, query).subscribe(res =>  this.openPost = res)
+    this.crudService.Search(this.category, query).subscribe(res =>  {this.openPost = res; console.log(this.openPost)})
+  }
+
+  setCategory(cat: string) {
+    this.category = cat;
+    console.log(this.category)
   }
 
 }

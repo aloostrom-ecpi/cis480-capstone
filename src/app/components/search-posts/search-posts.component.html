@@ -12,18 +12,43 @@
           </div>
           <div class="radio-grp">
             <div>
-              <input type="radio" name="category" id="author" checked />
+              <input
+                type="radio"
+                name="category"
+                id="author"
+                (click)="setCategory('author')"
+                checked
+              />
               <label for="author">Author</label>
             </div>
             <div>
-              <input type="radio" name="category" id="post" />
+              <input
+                type="radio"
+                name="category"
+                id="post"
+                (click)="setCategory('post')"
+              />
               <label for="post">Post</label>
             </div>
           </div>
         </form>
       </div>
-
-      <div id="posts"></div>
+    </div>
+    <div id="posts" *ngFor="let post of openPost">
+      <div class="header">
+        <div id="post-details">
+          <div id="details">{{ post.author }}</div>
+        </div>
+        <div class="menu">
+          <app-kehbab-menu
+            [postID]="openPost._id"
+            [authorID]="openPost.author"
+          ></app-kehbab-menu>
+        </div>
+      </div>
+      <div class="body">
+        <div id="message">{{ post.body }}</div>
+      </div>
     </div>
   </main>
 </div>
