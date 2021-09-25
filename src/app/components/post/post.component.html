@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header">
+    <div id="post-details">
+      <div id="details">{{ post.author }}</div>
+      <div id="date">{{ date }}</div>
+    </div>
+    <div class="menu">
+      <app-kehbab-menu
+        [postID]="post._id"
+        [authorID]="post.author"
+      ></app-kehbab-menu>
+    </div>
+  </div>
+  <div class="body">
+    <div id="message" [class.borderbottom]="!isSubPost">{{ post.body }}</div>
+    <div *ngIf="!isSubPost">
+      <app-reply-post></app-reply-post>
+    </div>
+  </div>
+</div>

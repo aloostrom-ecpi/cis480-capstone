@@ -1,1 +1,4 @@
-<p>load-posts works!</p>
+<h2>News Feed</h2>
+<div id="posts" *ngFor="let post of OpenPosts">
+  <app-post [post]="post"></app-post>
+</div>

@@ -1,16 +1,41 @@
-<main>
-  <!--put inside of main tag for purpose of CSS - Steve Woods-->
-  <div class="search">
-    <p>
-      <!-- ADDED MORE CONTENT SO IT CAN BE STYLED - STEVE WOODS-->
-      THIS IS THE SEARCH PAGE!!!!!!!!!!!!!!!!!!!!!! Tested with 10,000 lorem it
-      worked. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-      quae accusamus in, asperiores deleniti praesentium inventore ea veritatis
-      eos qui impedit molestiae optio explicabo rerum voluptatibus magnam veniam
-      rem! Tempore! Et atque debitis iure error, soluta sapiente voluptatem quis
-      ipsum rem reiciendis temporibus praesentium quod possimus omnis corporis
-      veniam corrupti, voluptatum repellat fugit inventore fugiat minus quos
-      odio. Doloremque, minima.
-    </p>
-  </div>
-</main>
+<div class="container">
+  <main>
+    <!--put inside of main tag for purpose of CSS - Steve Woods-->
+    <div class="search">
+      <h2>Search</h2>
+
+      <div class="searchbox-container">
+        <form>
+          <div class="searchbox">
+            <input type="text" #query />
+            <div id="go-btn" (click)="search(query.value)">GO</div>
+          </div>
+          <div class="radio-grp">
+            <div>
+              <input
+                type="radio"
+                name="category"
+                id="author"
+                (click)="setCategory('author')"
+                checked
+              />
+              <label for="author">Author</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="category"
+                id="post"
+                (click)="setCategory('post')"
+              />
+              <label for="post">Post</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="posts" *ngFor="let post of openPost">
+      <app-post [post]="post" [isSubPost]="true"></app-post>
+    </div>
+  </main>
+</div>

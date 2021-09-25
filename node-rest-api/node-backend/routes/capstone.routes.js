@@ -210,6 +210,37 @@ capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
   });
 });
 
+//search
+capstoneRoute.route("/search/:category/:query").get((req, res) => {
+  console.log("checkpoint 1");
+  const { category, query } = req.params;
+
+  if (category === "author")
+    OpenPosts.find({ author: query }, (error, data) => {
+      console.log(data);
+
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+
+  if (category === "post")
+    OpenPosts.find(
+      { body: { $regex: query, $options: "i" } },
+      (error, data) => {
+        console.log(data);
+
+        if (error) {
+          return next(error);
+        } else {
+          res.json(data);
+        }
+      }
+    );
+});
+
 //Leave this at the end of the file so we can export the complete
 //  definition of the API
 module.exports = capstoneRoute;
