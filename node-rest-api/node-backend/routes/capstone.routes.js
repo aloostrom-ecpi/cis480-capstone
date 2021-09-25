@@ -159,7 +159,9 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
   const { category, query } = req.params;
 
   if (category === "author")
-    OpenPosts.find({ author: query }, (error, data) => {
+    //OpenPosts.find({ author: query }, (error, data) => {
+    //search by username instead of ID
+    OpenPosts.find({ username: query }, (error, data) => {
       console.log(data);
 
       if (error) {
