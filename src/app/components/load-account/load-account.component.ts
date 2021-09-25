@@ -29,15 +29,19 @@ export class LoadAccountComponent implements OnInit {
     private crudService: CrudService) 
     {
       this.username = this.ngOnInit()
-      
-      this.crudService.GetUserAccount(this.username).subscribe(res => {
-        this.loadAccountForm.setValue({
-          firstname: res['firstname'],
-          lastname: res['lastname'],
-          username: res['username'],
-          email: res['email']
-        })
-      })
+
+      if (this.ngOnInit() == null){
+        this.ngZone.run(() => this.router.navigateByUrl('login-user'));
+      } else{
+          this.crudService.GetUserAccount(this.username).subscribe(res => {
+            this.loadAccountForm.setValue({
+              firstname: res['firstname'],
+              lastname: res['lastname'],
+              username: res['username'],
+              email: res['email']
+            })
+          })
+        }
 
       this.loadAccountForm = this.formBuilder.group({
         firstname: [''],
@@ -52,7 +56,7 @@ export class LoadAccountComponent implements OnInit {
     console.log("Checking session");
     if (localStorage.getItem("session") == null){
       console.log("attempting to redirect");
-      this.ngZone.run(() => this.router.navigateByUrl('login-user'));
+      //this.ngZone.run(() => this.router.navigateByUrl('login-user'));
     } else {
         try{
           const {username} = JSON.parse(localStorage.session)
