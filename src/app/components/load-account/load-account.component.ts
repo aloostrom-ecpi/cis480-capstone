@@ -9,6 +9,8 @@
 
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
   selector: 'app-load-account',
@@ -17,14 +19,36 @@ import { Router } from '@angular/router';
 })
 export class LoadAccountComponent implements OnInit {
 
+  username: any;
+  loadAccountForm: FormGroup;
+
   constructor(
     private router: Router,
-    private ngZone: NgZone) { 
-  
-  }
+    private ngZone: NgZone,
+    public formBuilder: FormBuilder,
+    private crudService: CrudService) 
+    {
+      this.username = this.ngOnInit()
+      
+      this.crudService.GetUserAccount(this.username).subscribe(res => {
+        this.loadAccountForm.setValue({
+          firstname: res['firstname'],
+          lastname: res['lastname'],
+          username: res['username'],
+          email: res['email']
+        })
+      })
+
+      this.loadAccountForm = this.formBuilder.group({
+        firstname: [''],
+        lastname: [''],
+        username: [''],
+        email: [''],
+      });
+    }
 
   
-  ngOnInit(): void { 
+  ngOnInit(): any { 
     console.log("Checking session");
     if (localStorage.getItem("session") == null){
       console.log("attempting to redirect");
@@ -33,6 +57,7 @@ export class LoadAccountComponent implements OnInit {
         try{
           const {username} = JSON.parse(localStorage.session)
           console.log("Username is: "+username)
+          return username
         }catch{
           console.log("sessionUser not defined. ")
         }
