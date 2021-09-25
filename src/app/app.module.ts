@@ -31,7 +31,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { List5Component } from './components/list5/list5.component';
 import { MainComponent } from './components/main/main.component';
 import { Top5Component } from './components/top5/top5.component';
-import { PostComponent } from './components/main/post/post.component';
+import { PostComponent } from './components/post/post.component';
 import { KehbabMenuComponent } from './components/kehbab-menu/kehbab-menu.component';
 
 @NgModule({

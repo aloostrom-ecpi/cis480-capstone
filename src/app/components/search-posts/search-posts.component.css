@@ -83,4 +83,5 @@ input[type="text"]:hover {
 #posts {
   min-height: 200px;
   width: 70%;
+  margin-bottom: 20px;
 }

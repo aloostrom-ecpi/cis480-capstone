@@ -35,20 +35,7 @@
       </div>
     </div>
     <div id="posts" *ngFor="let post of openPost">
-      <div class="header">
-        <div id="post-details">
-          <div id="details">{{ post.author }}</div>
-        </div>
-        <div class="menu">
-          <app-kehbab-menu
-            [postID]="openPost._id"
-            [authorID]="openPost.author"
-          ></app-kehbab-menu>
-        </div>
-      </div>
-      <div class="body">
-        <div id="message">{{ post.body }}</div>
-      </div>
+      <app-post [post]="post" [isSubPost]="true"></app-post>
     </div>
   </main>
 </div>
