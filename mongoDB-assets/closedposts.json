@@ -11,7 +11,8 @@
   "winningContractor": "613d3bce3966abb716fcfc09",
   "closeDate": {
     "$date": "2020-01-06T06:00:00Z"
-  }
+  },
+  "username": "skyvon3376"
 },{
   "_id": {
     "$oid": "613d97e13966abb716fcfc9f"
@@ -25,7 +26,8 @@
   "winningContractor": "613d3bce3966abb716fcfc04",
   "closeDate": {
     "$date": "2020-05-28T05:00:00Z"
-  }
+  },
+  "username": "kenfla4814"
 },{
   "_id": {
     "$oid": "613d98f33966abb716fcfca0"
@@ -39,5 +41,6 @@
   "winningContractor": "613d3bce3966abb716fcfc09",
   "closeDate": {
     "$date": "2020-06-27T06:00:00Z"
-  }
+  },
+  "username": "lewwol2058"
 }]

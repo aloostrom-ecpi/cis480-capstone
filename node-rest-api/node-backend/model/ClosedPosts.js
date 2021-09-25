@@ -9,6 +9,7 @@ let ClosedPostSchema = new Schema(
     reviewRequested: Boolean,
     winningContractor: String,
     closeDate: Date,
+    username: String,
   },
   {
     collection: "closedposts",

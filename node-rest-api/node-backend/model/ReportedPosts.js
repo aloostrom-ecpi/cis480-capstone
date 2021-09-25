@@ -8,6 +8,7 @@ let ReportedPostSchema = new Schema(
     body: String,
     reason: String,
     adminReviewer: String,
+    username: String,
   },
   {
     collection: "Reportedposts",
