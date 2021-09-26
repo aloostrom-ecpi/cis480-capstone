@@ -10,3 +10,7 @@ main {
     background: linear-gradient(#e2e2e2, dodgerblue);
     border: black solid .12rem;
   }
+  .form-group{
+    display: flex;
+    justify-content: right;
+  }
