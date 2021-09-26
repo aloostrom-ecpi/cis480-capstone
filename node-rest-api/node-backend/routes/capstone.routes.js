@@ -155,7 +155,6 @@ capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
 
 //search
 capstoneRoute.route("/search/:category/:query").get((req, res) => {
-  console.log("checkpoint 1");
   const { category, query } = req.params;
 
   if (category === "author")
@@ -188,14 +187,34 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
 
 //load current account details --PAL
 capstoneRoute.route("/load-account/:username").get((req, res) => {
-    User.findOne({username: req.params.username}, (error, data) => {
-      if (error) {
-        return next(error)
-      } else {
-        res.json(data)
-      }
-    })
-})
+  User.findOne({ username: req.params.username }, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
+  const parentID = req.params.parentID;
+  console.log("checkpoint 1");
+
+  OpenPosts.find({ parentpost: parentID }, (error, data) => {
+    console.log("checkpoint 2");
+    const sortedData = data.sort((a, b) => {
+      return new Date(b.postDate) - new Date(a.postDate);
+    });
+
+    console.log(data);
+
+    if (error) {
+      return next(error);
+    } else {
+      res.json(sortedData);
+    }
+  });
+});
 
 //Leave this at the end of the file so we can export the complete
 //  definition of the API
