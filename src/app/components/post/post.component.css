@@ -1,7 +1,10 @@
 .container {
   width: 100%;
-  min-height: 200px;
-  border: 1px solid black;
+  background: rgb(142, 165, 220);
+}
+
+.subBG {
+  background: rgba(236, 185, 185, 0.8);
 }
 
 .header {
@@ -14,22 +17,23 @@
 }
 
 .header div {
-  margin-left: 20px;
+  margin: 0px 20px 0px 10px;
 }
 
 .body {
-  height: 85%;
   padding: 10px 10px;
 }
 
-#message {
+#mainpost {
   min-height: 50px;
   padding: 10px 0px;
   margin-bottom: 10px;
+  border-bottom: 1px solid grey;
 }
 
-.borderbottom {
-  border-bottom: 1px solid grey;
+#subpost {
+  min-height: 20px;
+  padding: 0px 20px 0px 40px;
 }
 
 #post-details {

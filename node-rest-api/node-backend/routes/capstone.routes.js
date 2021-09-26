@@ -123,7 +123,10 @@ capstoneRoute.route("/open-posts").get((req, res) => {
       return next(error);
       console.log(error);
     } else {
-      res.json(data);
+      const sortedData = data.sort((a, b) => {
+        return new Date(b.postDate) - new Date(a.postDate);
+      });
+      res.json(sortedData);
     }
   });
 });
@@ -198,12 +201,10 @@ capstoneRoute.route("/load-account/:username").get((req, res) => {
 
 capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
   const parentID = req.params.parentID;
-  console.log("checkpoint 1");
 
   OpenPosts.find({ parentpost: parentID }, (error, data) => {
-    console.log("checkpoint 2");
     const sortedData = data.sort((a, b) => {
-      return new Date(b.postDate) - new Date(a.postDate);
+      return new Date(a.postDate) - new Date(b.postDate);
     });
 
     console.log(data);
