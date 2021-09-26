@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [class.subBG]="isSubPost === true">
   <div class="header">
     <div id="post-details">
       <div id="details">{{ post.username }}</div>
@@ -12,9 +12,19 @@
     </div>
   </div>
   <div class="body">
-    <div id="message" [class.borderbottom]="!isSubPost">{{ post.body }}</div>
+    <!-- MAIN POST: Displays if isSubPost is set to false. --Aren -->
     <div *ngIf="!isSubPost">
+      <div id="mainpost">
+        {{ post.body }}
+      </div>
       <app-reply-post></app-reply-post>
+    </div>
+
+    <!-- SUB POST: Displays if isSubPost is set to true. --Aren -->
+    <div *ngIf="isSubPost">
+      <div id="subpost">
+        {{ post.body }}
+      </div>
     </div>
   </div>
 </div>

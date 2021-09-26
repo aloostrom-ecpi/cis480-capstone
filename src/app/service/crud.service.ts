@@ -35,6 +35,10 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/open-posts`);
   }
 
+  GetChildPosts(parentID : string) {
+    return this.httpClient.get(`${this.REST_API}/child-posts/${parentID}`)
+  }
+
   DeletePost(id: string) {
     this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()
   }
