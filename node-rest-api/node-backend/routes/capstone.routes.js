@@ -115,8 +115,8 @@ capstoneRoute.route("/user/role/:id").get((req, res) => {
 /**********
 Open Posts
 ***********/
-//get all open posts --PAL
 
+//get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
   OpenPosts.find({ isParent: true }, (error, data) => {
     if (error) {
