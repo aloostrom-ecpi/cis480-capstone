@@ -22,7 +22,6 @@ export class LoadPostsComponent implements OnInit {
   ngOnInit(): void {
 
     this.crudService.GetAllOpenPosts().subscribe(res => {
-      console.log(res)
       this.OpenPosts = res;
     })
   }

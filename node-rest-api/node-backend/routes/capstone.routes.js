@@ -164,8 +164,6 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
     //OpenPosts.find({ author: query }, (error, data) => {
     //search by username instead of ID
     OpenPosts.find({ username: query }, (error, data) => {
-      console.log(data);
-
       if (error) {
         return next(error);
       } else {
@@ -177,8 +175,6 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
     OpenPosts.find(
       { body: { $regex: query, $options: "i" } },
       (error, data) => {
-        console.log(data);
-
         if (error) {
           return next(error);
         } else {
@@ -206,8 +202,6 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
     const sortedData = data.sort((a, b) => {
       return new Date(a.postDate) - new Date(b.postDate);
     });
-
-    console.log(data);
 
     if (error) {
       return next(error);
