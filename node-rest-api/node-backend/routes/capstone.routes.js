@@ -127,63 +127,6 @@ capstoneRoute.route("/open-posts").get((req, res) => {
     }
   });
 });
-/* using find({...}).lean()
-capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find({isParent: true}, (error, data) => {
-    if (error) {
-      return next(error);
-      console.log(error);
-    } else {
-      data.forEach(function(part, index) {
-        User.find({_id: this[index].author}, 'username', (err, doc) => {
-          if (err) return next(err);
-          else {
-            const {_id, username} = doc[0];
-            this[index].author = doc[0].username;
-          }
-        })
-      }, data)
-      res.json(data);
-    }
-  }).lean();
-});
-*/
-
-/*
-//other methods tried...
-capstoneRoute.route("/open-posts").get((req, res) => {
-  OpenPosts.find((error, data) => {
-    if (error) {
-      return next(error);
-      console.log(error);
-    } else {
-      //this doesnt work... --PAL
-      // check out https://stackoverflow.com/questions/14504385/why-cant-you-modify-the-data-returned-by-a-mongoose-query-ex-findbyid
-      /*data.forEach(element =>
-        //replace the userId with the username
-        element.author = User.find({_id: element.author},'username', (err, doc) => {
-          if (err) return next(err);
-          const {_id, username} = doc[0];
-          console.log("we'll replace " + element.author + " with "+ doc[0].username);
-          return doc[0].username;
-        })
-      )*/
-//Neither does this...
-/*
-      data.foreach(function(part, index) {
-        User.find({_id: this[index].author}, 'username', (err, doc) => {
-          if (err) return next(err);
-          else {
-            const {_id, username} = doc[0];
-            this[index].author = doc[0].username;
-          }
-        })
-      }, data)
-      res.json(data);
-    }
-  });
-});
-*/
 
 //get all open posts for a user --PAL
 capstoneRoute.route("/open-posts/:userId").get((req, res) => {
@@ -216,7 +159,9 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
   const { category, query } = req.params;
 
   if (category === "author")
-    OpenPosts.find({ author: query }, (error, data) => {
+    //OpenPosts.find({ author: query }, (error, data) => {
+    //search by username instead of ID
+    OpenPosts.find({ username: query }, (error, data) => {
       console.log(data);
 
       if (error) {
@@ -240,6 +185,17 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
       }
     );
 });
+
+//load current account details --PAL
+capstoneRoute.route("/load-account/:username").get((req, res) => {
+    User.findOne({username: req.params.username}, (error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.json(data)
+      }
+    })
+})
 
 //Leave this at the end of the file so we can export the complete
 //  definition of the API

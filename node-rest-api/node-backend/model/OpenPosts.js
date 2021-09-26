@@ -8,6 +8,7 @@ let OpenPostSchema = new Schema(
     body: String,
     isParent: Boolean,
     parentPost: String,
+    username: String,
   },
   {
     collection: "openposts",

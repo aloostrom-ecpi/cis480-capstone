@@ -43,6 +43,16 @@ export class CrudService {
     console.log(`${this.REST_API}/search/${field}/${query}`)
     return this.httpClient.get(`${this.REST_API}/search/${field}/${query}`);
   }
+
+  GetUserAccount(username: any): Observable<any> {
+    let API_URL = `${this.REST_API}/load-account/${username}`;
+    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+      .pipe(map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
  
   //Get a single census
   GetCensus(id: any): Observable<any> {
