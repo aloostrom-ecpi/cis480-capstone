@@ -32,11 +32,14 @@ textarea {
 }
 
 .btn {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.9rem;
   padding: 5px;
   border-radius: 15px;
-  border: 1px solid grey;
-  background: rgba(167, 166, 166, 0.7);
+  border: 1px solid rgb(88, 87, 87);
+  background: none;
   margin: 0px 5px;
+  color: black;
 }
 
 .btn:hover {

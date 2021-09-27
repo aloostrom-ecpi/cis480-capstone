@@ -17,20 +17,18 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class ReplyPostComponent implements OnInit {
   isActive: boolean = false;
-  @ViewChild('textarea') textarea: any;
 
   constructor() { }
 
   ngOnInit(): void {
 
-    //TODO - detect on change for textarea
-    this.textarea.onchange = {}
   }
 
   activate(){
     this.isActive = !this.isActive;
   }
 
+  //Adjust height function. Makes textarea expand when user is typing instead of having a scrollbar.
   adjustHt(dom: any) {
     dom.style.height = "";
     dom.style.height = Math.min(dom.scrollHeight, 300) + "px";
