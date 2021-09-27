@@ -46,10 +46,10 @@ export class RegisterUserComponent implements OnInit {
 
   onSubmit() {
     this.crudService.AddUser(this.createForm.value)
-      .subscribe(() => {
-        console.log('Data added successfully')
-        this.ngZone.run(() => this.router.navigateByUrl('/home'))
-      })
+    .subscribe(() => {
+      console.log('Data added successfully')
+      this.ngZone.run(() => this.router.navigateByUrl('/home'))
+    })
   }
 
   ngOnInit(): void {
