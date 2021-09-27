@@ -40,7 +40,6 @@ export class RegisterUserComponent implements OnInit {
       lName: [''],
       uName: [''],
       pass: [''],
-      cPass: [''],
       email: ['']
     })
   }
