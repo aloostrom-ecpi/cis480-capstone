@@ -22,6 +22,7 @@
 
 .body {
   padding: 10px 10px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #mainpost {
@@ -29,11 +30,13 @@
   padding: 10px 0px;
   margin-bottom: 10px;
   border-bottom: 1px solid grey;
+  font-size: 1.1rem;
 }
 
 #subpost {
   min-height: 20px;
   padding: 0px 20px 0px 40px;
+  font-size: 1rem;
 }
 
 #post-details {

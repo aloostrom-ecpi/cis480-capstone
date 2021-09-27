@@ -1,8 +1,32 @@
 <main>
-    <form>
-        <div class="reply-post">
-            <textarea name="reply" id="reply" placeholder="Type reply here!"></textarea>
-        </div>
-        <input type="submit" value="Reply">
-    </form>
+  <form>
+    <div class="reply-post" [class.hidden]="!isActive">
+      <textarea
+        name="reply"
+        id="reply"
+        placeholder="Type reply here!"
+        (input)="adjustHt(textarea)"
+        #textarea
+      ></textarea>
+    </div>
+    <div id="btn-grp">
+      <input
+        class="btn"
+        [class.hidden]="!isActive"
+        (click)="activate()"
+        type="button"
+        value="cancel"
+      />
+      <input
+        class="btn"
+        [class.hidden]="!isActive"
+        type="submit"
+        value="submit"
+      />
+    </div>
+
+    <div id="reply-btn" [class.hidden]="isActive" (click)="activate()">
+      reply
+    </div>
+  </form>
 </main>

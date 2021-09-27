@@ -212,5 +212,5 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
 });
 
 //Leave this at the end of the file so we can export the complete
-//  definition of the API
+//definition of the API
 module.exports = capstoneRoute;
