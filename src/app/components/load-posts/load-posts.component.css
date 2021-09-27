@@ -8,4 +8,5 @@ h2 {
 #posts {
   width: 800px;
   margin-bottom: 30px;
+  border: black 1px solid;
 }

@@ -13,7 +13,7 @@ export class LoadSubPostsComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
-    this.crudService.GetChildPosts(this.parentID).subscribe(data => {this.posts = data; console.log(this.posts)})
+    this.crudService.GetChildPosts(this.parentID).subscribe(data => this.posts = data)
   }
 
 
