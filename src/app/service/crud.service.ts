@@ -74,6 +74,15 @@ export class CrudService {
       )
   }
 
+  //Add user -- ty adams
+  AddUser(data:any) {
+    let API_URL = `${this.REST_API}/user`;
+    return this.httpClient.post(API_URL, data)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   //Add
   AddCensus(data: Census): Observable<any> {
     let API_URL = `${this.REST_API}/add-census`;
