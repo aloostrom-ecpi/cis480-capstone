@@ -20,7 +20,7 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class ReplyPostComponent implements OnInit {
 
-@Input() parentID: string = '';
+  @Input() parentID: string = '';
   isLoggedIn: boolean = false;
   isActive: boolean = false;
   replyForm : FormGroup;
@@ -48,20 +48,24 @@ export class ReplyPostComponent implements OnInit {
     dom.style.height = Math.min(dom.scrollHeight, 300) + "px";
   }
 
-  onSubmit() {
+  async onSubmit() {
 
-    //if logged in
-    if (localStorage.session){
-      const authorID = JSON.parse(localStorage.session)._id
+    if (this.isLoggedIn){
+      const { _id, username} = JSON.parse(localStorage.session)
 
-    this.crudService.CreateReply(this.parentID, authorID, this.replyForm.value)
+    await this.crudService.CreateReply(this.parentID, _id, username,  this.replyForm.value)
     .subscribe(() => {
       console.log('Data added successfully'); 
-      //this.router.navigateByUrl('/');
+      //this.router.navigateByUrl('/'); 
     }, (err) => {
       console.log(err);
     });
-  }
+
+    //page refresh
+    this.router.navigateByUrl('/search', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/home']);
+    })
+    }
   }
   
 
