@@ -1,5 +1,5 @@
 <main>
-  <form [formGroup]="replyForm" (ngSubmit)="onSubmit()">
+  <form *ngIf="isLoggedIn" [formGroup]="replyForm" (ngSubmit)="onSubmit()">
     <div class="reply-post" [class.hidden]="!isActive">
       <textarea
         name="reply"
@@ -25,15 +25,9 @@
         type="submit"
         value="submit"
       />
-    </div>
-
-    <div
-      *ngIf="isLoggedIn"
-      id="reply-btn"
-      [class.hidden]="isActive"
-      (click)="activate()"
-    >
-      reply
+      <div id="reply-btn" [class.hidden]="isActive" (click)="activate()">
+        reply
+      </div>
     </div>
   </form>
 </main>
