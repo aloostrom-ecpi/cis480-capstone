@@ -4,12 +4,15 @@
     <div class="search">
       <h2>Search</h2>
 
+      <!-- SEARCH BOX -->
       <div class="searchbox-container">
         <form>
           <div class="searchbox">
             <input type="text" #query />
             <div id="go-btn" (click)="search(query.value)">GO</div>
           </div>
+
+          <!-- RADIO BUTTON GROUP -->
           <div class="radio-grp">
             <div>
               <input

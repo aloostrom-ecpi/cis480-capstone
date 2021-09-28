@@ -126,22 +126,25 @@ capstoneRoute.route("/user/role/:id").get((req, res) => {
 /**********
 Open Posts
 ***********/
-//get all open posts --PAL
 
+//get all open posts --PAL
 capstoneRoute.route("/open-posts").get((req, res) => {
   OpenPosts.find({ isParent: true }, (error, data) => {
     if (error) {
       return next(error);
       console.log(error);
     } else {
-      res.json(data);
+      const sortedData = data.sort((a, b) => {
+        return new Date(b.postDate) - new Date(a.postDate);
+      });
+      res.json(sortedData);
     }
   });
 });
 
 //get all open posts for a user --PAL
-capstoneRoute.route("/open-posts/:userId").get((req, res) => {
-  OpenPosts.find({ author: req.params.userId }, (error, data) => {
+capstoneRoute.route("/open-posts/:username").get((req, res) => {
+  OpenPosts.find({ username: req.params.username }, (error, data) => {
     if (error) {
       return next(error);
       console.log(error);
@@ -166,13 +169,12 @@ capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
 
 //search
 capstoneRoute.route("/search/:category/:query").get((req, res) => {
-  console.log("checkpoint 1");
   const { category, query } = req.params;
 
   if (category === "author")
-    OpenPosts.find({ author: query }, (error, data) => {
-      console.log(data);
-
+    //OpenPosts.find({ author: query }, (error, data) => {
+    //search by username instead of ID
+    OpenPosts.find({ username: query }, (error, data) => {
       if (error) {
         return next(error);
       } else {
@@ -184,8 +186,6 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
     OpenPosts.find(
       { body: { $regex: query, $options: "i" } },
       (error, data) => {
-        console.log(data);
-
         if (error) {
           return next(error);
         } else {
@@ -197,15 +197,31 @@ capstoneRoute.route("/search/:category/:query").get((req, res) => {
 
 //load current account details --PAL
 capstoneRoute.route("/load-account/:username").get((req, res) => {
-    User.findOne({username: req.params.username}, (error, data) => {
-      if (error) {
-        return next(error)
-      } else {
-        res.json(data)
-      }
-    })
-})
+  User.findOne({ username: req.params.username }, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
+  const parentID = req.params.parentID;
+
+  OpenPosts.find({ parentpost: parentID }, (error, data) => {
+    const sortedData = data.sort((a, b) => {
+      return new Date(a.postDate) - new Date(b.postDate);
+    });
+
+    if (error) {
+      return next(error);
+    } else {
+      res.json(sortedData);
+    }
+  });
+});
 
 //Leave this at the end of the file so we can export the complete
-//  definition of the API
+//definition of the API
 module.exports = capstoneRoute;

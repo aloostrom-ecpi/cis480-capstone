@@ -35,6 +35,10 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/open-posts`);
   }
 
+  GetChildPosts(parentID : string) {
+    return this.httpClient.get(`${this.REST_API}/child-posts/${parentID}`)
+  }
+
   DeletePost(id: string) {
     this.httpClient.delete(`${this.REST_API}/remove-post/${id}`, {headers: this.httpHeaders}).subscribe()
   }
@@ -50,6 +54,17 @@ export class CrudService {
       .pipe(map((res: any) => {
         return res || {}
       }),
+      catchError(this.handleError)
+    )
+  }
+
+  //get OpenPosts for a username
+  GetOpenPostsForUser(username: any): Observable<any> {
+    let API_URL = `${this.REST_API}/open-posts/${username}`;
+    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    .pipe(map((res: any) => {
+      return res || {}
+    }),
       catchError(this.handleError)
     )
   }

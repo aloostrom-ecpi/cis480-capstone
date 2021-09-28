@@ -33,6 +33,7 @@ import { MainComponent } from './components/main/main.component';
 import { Top5Component } from './components/top5/top5.component';
 import { PostComponent } from './components/post/post.component';
 import { KehbabMenuComponent } from './components/kehbab-menu/kehbab-menu.component';
+import { LoadSubPostsComponent } from './components/load-sub-posts/load-sub-posts.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { KehbabMenuComponent } from './components/kehbab-menu/kehbab-menu.compon
     MainComponent,
     Top5Component,
     PostComponent,
-    KehbabMenuComponent
+    KehbabMenuComponent,
+    LoadSubPostsComponent
   ],
   imports: [
     BrowserModule,

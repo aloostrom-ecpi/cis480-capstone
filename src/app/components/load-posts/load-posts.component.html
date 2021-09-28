@@ -1,4 +1,5 @@
 <h2>News Feed</h2>
 <div id="posts" *ngFor="let post of OpenPosts">
   <app-post [post]="post"></app-post>
+  <app-load-sub-posts [parentID]="post._id"></app-load-sub-posts>
 </div>

@@ -2,9 +2,11 @@ h2 {
   display: flex;
   justify-content: center;
   font-size: 28px;
+  margin: 20px 0px;
 }
 
 #posts {
   width: 800px;
   margin-bottom: 30px;
+  border: black 1px solid;
 }

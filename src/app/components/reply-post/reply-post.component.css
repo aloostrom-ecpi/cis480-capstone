@@ -1,4 +1,47 @@
-.reply-post{
-    align-items: right;
-    width: 80%;
+.reply-post {
+  align-items: right;
+}
+
+textarea {
+  max-height: fit-content;
+  margin: 5px;
+  width: 96%;
+  min-height: 50px;
+  resize: vertical;
+  padding: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#reply-btn {
+  width: fit-content;
+  padding: 3.5px;
+  font-size: 0.9rem;
+}
+
+#reply-btn:hover {
+  cursor: pointer;
+}
+
+#btn-grp {
+  display: flex;
+  justify-content: end;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 15px;
+  border: 1px solid rgb(88, 87, 87);
+  background: none;
+  margin: 0px 5px;
+  color: black;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
