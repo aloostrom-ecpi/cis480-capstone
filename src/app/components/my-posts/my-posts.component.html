@@ -1,13 +1,15 @@
-<div class="container">
+<div class="containAll">
   <aside>
-    <app-top5></app-top5>
+    <app-top5 class="top5"></app-top5>
   </aside>
-  <h2>My Posts</h2>
-  <div id="posts" *ngFor="let post of MyPosts">
-    <app-post [post]="post"></app-post>
-    <app-load-sub-posts [parentID]="post._id"></app-load-sub-posts>
+  <div class="container">
+    <h2>My Posts</h2>
+    <div id="posts" *ngFor="let post of MyPosts">
+      <app-post [post]="post"></app-post>
+      <app-load-sub-posts [parentID]="post._id"></app-load-sub-posts>
+    </div>
   </div>
   <aside>
-    <app-list5></app-list5>
+    <app-list5 class="list5"></app-list5>
   </aside>
 </div>
