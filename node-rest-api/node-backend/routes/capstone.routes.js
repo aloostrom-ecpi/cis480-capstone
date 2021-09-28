@@ -144,8 +144,8 @@ capstoneRoute.route("/open-posts").get((req, res) => {
 });
 
 //get all open posts for a user --PAL
-capstoneRoute.route("/open-posts/:userId").get((req, res) => {
-  OpenPosts.find({ author: req.params.userId }, (error, data) => {
+capstoneRoute.route("/open-posts/:username").get((req, res) => {
+  OpenPosts.find({ username: req.params.username }, (error, data) => {
     if (error) {
       return next(error);
       console.log(error);

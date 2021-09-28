@@ -6,7 +6,9 @@
       Do we want to hold onto sticky columns for this or only show posts?
 */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { CrudService } from 'src/app/service/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-posts',
@@ -14,10 +16,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-posts.component.css']
 })
 export class MyPostsComponent implements OnInit {
+  MyPosts:any = []
 
-  constructor() { }
+  constructor(
+    private crudService: CrudService,
+    private ngZone: NgZone,
+    private router: Router) { }
 
   ngOnInit(): void {
-  }
 
+    if (localStorage.getItem("session") == null){
+      this.ngZone.run(() => this.router.navigateByUrl('login-user'));
+    } else {
+      const {username} = JSON.parse(localStorage.session)
+      console.log(username)
+      this.crudService.GetOpenPostsForUser(username).subscribe(res => {
+        this.MyPosts = res;
+      })
+    }
+  }
 }
