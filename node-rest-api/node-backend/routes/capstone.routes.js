@@ -70,7 +70,46 @@ capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
   });
 });
 
-//role verification
+//Username finder - for user
+capstoneRoute.route("/user/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  User.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
+//Add User to user collection
+capstoneRoute.route("/user").post((req, res, next) => {
+  console.log("Ty2");
+  User.create(req.body, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+//Username finder - for contractor
+capstoneRoute.route("/contractor/username/:id").get((req, res) => {
+  const id = req.params.id;
+
+  Contractors.findById(id, (err, data) => {
+    if (err) {
+      return next(err);
+    } else {
+      const { username } = data;
+      res.json(username);
+    }
+  });
+});
+
 capstoneRoute.route("/user/role/:id").get((req, res) => {
   const id = req.params.id;
 
@@ -106,8 +145,8 @@ capstoneRoute.route("/open-posts").get((req, res) => {
 });
 
 //get all open posts for a user --PAL
-capstoneRoute.route("/open-posts/:userId").get((req, res) => {
-  OpenPosts.find({ author: req.params.userId }, (error, data) => {
+capstoneRoute.route("/open-posts/:username").get((req, res) => {
+  OpenPosts.find({ username: req.params.username }, (error, data) => {
     if (error) {
       return next(error);
       console.log(error);
@@ -189,14 +228,14 @@ capstoneRoute.route("/reply/:id").post((req, res) => {
   const id = req.params.id;
   console.log("test");
 
-  /*  OpenPosts.create(req.body, (error, data) => {
+  OpenPosts.create(req.body, (error, data) => {
     if (error) {
       return next(error);
     } else {
-    co
+      co;
       res.json(data);
     }
-  }); */
+  });
 });
 
 //Leave this at the end of the file so we can export the complete

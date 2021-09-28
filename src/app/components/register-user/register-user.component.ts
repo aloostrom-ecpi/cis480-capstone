@@ -16,7 +16,10 @@
         role = 2 (user)
 */
 
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
   selector: 'app-register-user',
@@ -25,7 +28,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterUserComponent implements OnInit {
 
-  constructor() { }
+  createForm: FormGroup;
+
+  constructor(
+    public formBuilder: FormBuilder,     
+    private router: Router,
+    private ngZone: NgZone,
+    private crudService: CrudService) { 
+    this.createForm = this.formBuilder.group({ 
+      fName: [''],
+      lName: [''],
+      uName: [''],
+      pass: [''],
+      email: ['']
+    })
+  }
+
+  onSubmit() {
+    this.crudService.AddUser(this.createForm.value)
+    .subscribe(() => {
+      console.log('Data added successfully')
+      this.ngZone.run(() => this.router.navigateByUrl('/home'))
+    })
+  }
 
   ngOnInit(): void {
   }

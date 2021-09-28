@@ -1,14 +1,15 @@
 <main>
     <div class='create-account-form'>
         <h1>Create Account</h1>
-        <form action="">
-            <input type="text" placeholder="First Name"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="Username">
-            <input type="text" placeholder="Password">
-            <input type="text" placeholder="Email">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+            <input type="text" id="fName" placeholder="First Name"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
+            <input type="text" id="lName" placeholder="Last Name">
+            <input type="text" id="uName"placeholder="Username">
+            <input type="password" id="pass" placeholder="Password">
+            <input type="password" id="cPass" placeholder="Retype Password">
+            <input type="text" id="email" placeholder="Email">
             <div class='submit-button'>
-                <input type="button" value="Submit">
+                <input type="submit" value="Submit">
             </div>
         </form>
     </div>

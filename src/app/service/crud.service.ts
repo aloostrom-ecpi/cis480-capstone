@@ -61,6 +61,17 @@ export class CrudService {
       catchError(this.handleError)
     )
   }
+
+  //get OpenPosts for a username
+  GetOpenPostsForUser(username: any): Observable<any> {
+    let API_URL = `${this.REST_API}/open-posts/${username}`;
+    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    .pipe(map((res: any) => {
+      return res || {}
+    }),
+      catchError(this.handleError)
+    )
+  }
  
   //Get a single census
   GetCensus(id: any): Observable<any> {
@@ -77,6 +88,15 @@ export class CrudService {
   updateCensus(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/update-census/${id}`;
     return this.httpClient.put(API_URL, data, { headers: this.httpHeaders})
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  //Add user -- ty adams
+  AddUser(data:any) {
+    let API_URL = `${this.REST_API}/user`;
+    return this.httpClient.post(API_URL, data)
       .pipe(
         catchError(this.handleError)
       )
