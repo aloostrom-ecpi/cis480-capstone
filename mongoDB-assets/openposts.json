@@ -56,7 +56,8 @@
   "postDate": {
     "$date": "2021-09-11T00:00:00Z"
   },
-  "parentpost": "alitur8097"
+  "parentpost": "",
+  "username": "alitur8907"
 },{
   "_id": {
     "$oid": "613d501f3966abb716fcfc3e"

@@ -45,3 +45,8 @@ textarea {
 .btn:hover {
   cursor: pointer;
 }
+
+form {
+  border-top: 1px solid grey;
+  padding-top: 5px;
+}

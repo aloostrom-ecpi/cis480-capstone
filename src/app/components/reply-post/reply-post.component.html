@@ -1,5 +1,5 @@
 <main>
-  <form>
+  <form *ngIf="isLoggedIn" [formGroup]="replyForm" (ngSubmit)="onSubmit()">
     <div class="reply-post" [class.hidden]="!isActive">
       <textarea
         name="reply"
@@ -7,6 +7,8 @@
         placeholder="Type reply here!"
         (input)="adjustHt(textarea)"
         #textarea
+        formControlName="reply"
+        placeholder="What are you thinking about?"
       ></textarea>
     </div>
     <div id="btn-grp">
@@ -23,10 +25,9 @@
         type="submit"
         value="submit"
       />
-    </div>
-
-    <div id="reply-btn" [class.hidden]="isActive" (click)="activate()">
-      reply
+      <div id="reply-btn" [class.hidden]="isActive" (click)="activate()">
+        reply
+      </div>
     </div>
   </form>
 </main>

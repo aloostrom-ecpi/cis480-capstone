@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //Make the thing an API and name it
 const capstoneRoute = express.Router();
 
@@ -120,8 +123,6 @@ capstoneRoute.route("/user/role/:id").get((req, res) => {
   });
 });
 
-//
-
 //^^^^^^^PAL^^^^^^^
 
 /**********
@@ -222,6 +223,31 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
     }
   });
 });
+
+capstoneRoute
+  .route("/reply/:parentID-:authorID-:username")
+  .post((req, res, next) => {
+    const { parentID, authorID, username } = req.params;
+
+    const newReply = {
+      author: authorID,
+      body: req.body["reply"],
+      isParent: false,
+      parentpost: parentID,
+      username: username,
+    };
+
+    console.log(newReply);
+
+    OpenPosts.create(newReply, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        console.log(data);
+        res.json(data);
+      }
+    });
+  });
 
 //Leave this at the end of the file so we can export the complete
 //definition of the API
