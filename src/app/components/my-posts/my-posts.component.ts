@@ -29,7 +29,6 @@ export class MyPostsComponent implements OnInit {
       this.ngZone.run(() => this.router.navigateByUrl('login-user'));
     } else {
       const {username} = JSON.parse(localStorage.session)
-      console.log(username)
       this.crudService.GetOpenPostsForUser(username).subscribe(res => {
         this.MyPosts = res;
       })
