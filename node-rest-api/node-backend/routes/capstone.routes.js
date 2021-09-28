@@ -86,7 +86,6 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
 
 //Add User to user collection
 capstoneRoute.route("/user").post((req, res, next) => {
-  console.log("Ty2");
   User.create(req.body, (error, data) => {
     if (error) {
       return next(error);

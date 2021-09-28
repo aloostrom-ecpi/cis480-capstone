@@ -36,15 +36,15 @@ export class RegisterUserComponent implements OnInit {
     private ngZone: NgZone,
     private crudService: CrudService) { 
     this.createForm = this.formBuilder.group({ 
-      fName: [''],
-      lName: [''],
-      uName: [''],
-      pass: [''],
+      firstname: [''],
+      lastname: [''],
+      username: [''],
+      password: [''],
       email: ['']
     })
   }
 
-  onSubmit() {
+  onSubmit(): any {
     this.crudService.AddUser(this.createForm.value)
     .subscribe(() => {
       console.log('Data added successfully')

@@ -2,12 +2,12 @@
     <div class='create-account-form'>
         <h1>Create Account</h1>
         <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-            <input type="text" id="fName" placeholder="First Name"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
-            <input type="text" id="lName" placeholder="Last Name">
-            <input type="text" id="uName"placeholder="Username">
-            <input type="password" id="pass" placeholder="Password">
+            <input type="text" id="firstname" placeholder="First Name" formControlName="firstname"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
+            <input type="text" id="lastname" placeholder="Last Name" formControlName="lastname">
+            <input type="text" id="username" placeholder="Username" formControlName="username">
+            <input type="password" id="password" placeholder="Password" formControlName="password">
             <input type="password" id="cPass" placeholder="Retype Password">
-            <input type="text" id="email" placeholder="Email">
+            <input type="text" id="email" placeholder="Email" formControlName="email">
             <div class='submit-button'>
                 <input type="submit" value="Submit">
             </div>
