@@ -17,7 +17,7 @@
       <div id="mainpost">
         {{ post.body }}
       </div>
-      <app-reply-post></app-reply-post>
+      <app-reply-post [parentID]="post._id"></app-reply-post>
     </div>
 
     <!-- SUB POST: Displays if isSubPost is set to true. --Aren -->

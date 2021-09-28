@@ -224,15 +224,15 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
   });
 });
 
-capstoneRoute.route("/reply/:id").post((req, res) => {
-  const id = req.params.id;
-  console.log("test");
+capstoneRoute.route("/reply/:parentID-:authorID").post((req, res, next) => {
+  const { parentID, authorID } = req.params;
+
+  console.log(parentID, authorID, req.body);
 
   OpenPosts.create(req.body, (error, data) => {
     if (error) {
       return next(error);
     } else {
-      co;
       res.json(data);
     }
   });
