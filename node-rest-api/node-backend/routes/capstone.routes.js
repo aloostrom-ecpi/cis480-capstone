@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //Make the thing an API and name it
 const capstoneRoute = express.Router();
 
@@ -67,34 +70,7 @@ capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
   });
 });
 
-//Username finder - for user
-capstoneRoute.route("/user/username/:id").get((req, res) => {
-  const id = req.params.id;
-
-  User.findById(id, (err, data) => {
-    if (err) {
-      return next(err);
-    } else {
-      const { username } = data;
-      res.json(username);
-    }
-  });
-});
-
-//Username finder - for contractor
-capstoneRoute.route("/contractor/username/:id").get((req, res) => {
-  const id = req.params.id;
-
-  Contractors.findById(id, (err, data) => {
-    if (err) {
-      return next(err);
-    } else {
-      const { username } = data;
-      res.json(username);
-    }
-  });
-});
-
+//role verification
 capstoneRoute.route("/user/role/:id").get((req, res) => {
   const id = req.params.id;
 
@@ -107,8 +83,6 @@ capstoneRoute.route("/user/role/:id").get((req, res) => {
     }
   });
 });
-
-//
 
 //^^^^^^^PAL^^^^^^^
 
@@ -209,6 +183,20 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
       res.json(sortedData);
     }
   });
+});
+
+capstoneRoute.route("/reply/:id").post((req, res) => {
+  const id = req.params.id;
+  console.log("test");
+
+  /*  OpenPosts.create(req.body, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+    co
+      res.json(data);
+    }
+  }); */
 });
 
 //Leave this at the end of the file so we can export the complete
