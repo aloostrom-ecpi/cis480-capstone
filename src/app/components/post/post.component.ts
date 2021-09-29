@@ -11,6 +11,7 @@ import { ContractorService } from 'src/app/service/contractor.service';
 export class PostComponent implements OnInit {
   @Input() post:any;
   @Input() isSubPost: boolean = false;
+  editMode: boolean = false;
   username: string = '';
   date:string = "";
   
@@ -22,7 +23,10 @@ export class PostComponent implements OnInit {
 
     this.date = `Posted: ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`
 
- 
+  }
+
+  toggleEdit(value: boolean) {
+    this.editMode = value;
   }
 
 }

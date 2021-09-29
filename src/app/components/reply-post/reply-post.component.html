@@ -1,14 +1,21 @@
 <main>
-  <form>
+  <form
+    *ngIf="isLoggedIn"
+    [formGroup]="replyForm"
+    (ngSubmit)="onSubmit()"
+    [class.bordertop]="type === 'reply'"
+  >
     <div class="reply-post" [class.hidden]="!isActive">
       <textarea
-        name="reply"
+        name="body"
         id="reply"
-        placeholder="Type reply here!"
         (input)="adjustHt(textarea)"
         #textarea
+        formControlName="body"
+        placeholder="Enter message"
       ></textarea>
     </div>
+
     <div id="btn-grp">
       <input
         class="btn"
@@ -16,6 +23,7 @@
         (click)="activate()"
         type="button"
         value="cancel"
+        *ngIf="type === 'reply' || type === 'edit'"
       />
       <input
         class="btn"
@@ -23,10 +31,14 @@
         type="submit"
         value="submit"
       />
-    </div>
-
-    <div id="reply-btn" [class.hidden]="isActive" (click)="activate()">
-      reply
+      <div
+        *ngIf="type === 'reply'"
+        id="reply-btn"
+        [class.hidden]="isActive"
+        (click)="activate()"
+      >
+        reply
+      </div>
     </div>
   </form>
 </main>
