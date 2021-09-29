@@ -23,7 +23,6 @@ export class PostComponent implements OnInit {
 
     this.date = `Posted: ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`
 
-    console.log(this.post.body)
   }
 
   toggleEdit(value: boolean) {
