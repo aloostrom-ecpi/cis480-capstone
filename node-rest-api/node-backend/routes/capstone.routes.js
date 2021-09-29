@@ -224,6 +224,7 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
   });
 });
 
+//create reply post (child post)
 capstoneRoute
   .route("/reply/:parentID-:authorID-:username")
   .post((req, res, next) => {
@@ -231,7 +232,7 @@ capstoneRoute
 
     const newReply = {
       author: authorID,
-      body: req.body["reply"],
+      body: req.body["body"],
       isParent: false,
       parentpost: parentID,
       username: username,
@@ -245,9 +246,35 @@ capstoneRoute
       } else {
         console.log(data);
         res.json(data);
+        next();
       }
     });
   });
+
+//create parent post
+capstoneRoute.route("/new-post/:authorID-:username").post((req, res, next) => {
+  const { authorID, username } = req.params;
+
+  const newPost = {
+    author: authorID,
+    body: req.body["body"],
+    isParent: true,
+    parentpost: "",
+    username: username,
+  };
+
+  console.log(newPost);
+
+  OpenPosts.create(newPost, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      console.log(data);
+      res.json(data);
+      next();
+    }
+  });
+});
 
 //Leave this at the end of the file so we can export the complete
 //definition of the API

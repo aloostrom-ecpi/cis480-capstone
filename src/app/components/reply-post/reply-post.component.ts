@@ -21,13 +21,15 @@ import { CrudService } from 'src/app/service/crud.service';
 export class ReplyPostComponent implements OnInit {
 
   @Input() parentID: string = '';
+  @Input() type: string = 'new'; //new, reply, edit, 
   isLoggedIn: boolean = false;
-  isActive: boolean = false;
+  @Input() isActive: boolean = false;
   replyForm : FormGroup;
+
 
   constructor(private router: Router, public formBuilder: FormBuilder, private crudService: CrudService) { 
     this.replyForm = this.formBuilder.group({
-      reply: ['']
+      body: ['']
     })
   }
 
@@ -50,23 +52,42 @@ export class ReplyPostComponent implements OnInit {
 
   async onSubmit() {
 
-    if (this.isLoggedIn){
+    console.log(this.replyForm.value.body)
+
+    if (this.isLoggedIn && this.replyForm.value.body !== ''){
       const { _id, username} = JSON.parse(localStorage.session)
+      console.log('loggedin')
 
-    await this.crudService.CreateReply(this.parentID, _id, username,  this.replyForm.value)
-    .subscribe(() => {
-      console.log('Data added successfully'); 
-      //this.router.navigateByUrl('/'); 
-    }, (err) => {
-      console.log(err);
-    });
+      switch(this.type){
+        case 'new':
+          console.log('new')
+              await this.crudService.CreatePost(_id, username, this.replyForm.value).subscribe(() => {
+                console.log('Data added successfully'); 
+              }, (err) => {
+                console.log(err);
+              });
+              break;
 
-    //page refresh
-    this.router.navigateByUrl('/search', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/home']);
-    })
-    }
+        case 'edit':
+
+        case 'reply': 
+              await this.crudService.CreateReply(this.parentID, _id, username,  this.replyForm.value)
+              .subscribe(() => {
+                console.log('Data added successfully'); 
+              }, (err) => {
+                console.log(err);
+              });
+              break;
+
+      }
+      
+        //page refresh
+        this.router.navigateByUrl('/search', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/home']);
+        })
+        return;
+      }
   }
-  
 
 }
+  

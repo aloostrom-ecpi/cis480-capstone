@@ -1,4 +1,7 @@
 <h2>News Feed</h2>
+<div id="newpost">
+  <app-reply-post [type]="'new'" [isActive]="true"></app-reply-post>
+</div>
 <div id="posts" *ngFor="let post of OpenPosts">
   <app-post [post]="post"></app-post>
   <app-load-sub-posts [parentID]="post._id"></app-load-sub-posts>
