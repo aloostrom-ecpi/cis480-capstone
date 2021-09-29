@@ -29,7 +29,7 @@ export class KehbabMenuComponent implements OnInit {
     //if user is loggedin, check authority on post
     if (this.session) {
       this.isAuthorized = JSON.parse(localStorage["session"])._id === this.authorID ? true : false;
-      this.userService.getActiveUserRole().subscribe(role => { if (role === 2) this.isAuthorized = true });
+      if (!JSON.parse(localStorage.isContractor)) this.userService.getActiveUserRole().subscribe(role => { if (role === 2) this.isAuthorized = true });
       this.isLoggedIn = true;
     }
 
