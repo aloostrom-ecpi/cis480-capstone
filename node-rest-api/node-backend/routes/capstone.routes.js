@@ -2,6 +2,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -86,13 +87,16 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
 
 //Add User to user collection
 capstoneRoute.route("/user").post((req, res, next) => {
-  User.create(req.body, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
-  });
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    req.body.password = hash;
+    User.create(req.body, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+  })
 });
 
 //Username finder - for contractor
