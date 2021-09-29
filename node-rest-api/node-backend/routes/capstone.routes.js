@@ -88,7 +88,6 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
 //Add User to user collection
 capstoneRoute.route("/user").post((req, res, next) => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
-    console.log(hash);
     req.body.password = hash;
     User.create(req.body, (error, data) => {
       if (error) {
