@@ -21,6 +21,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { CrudService } from 'src/app/service/crud.service';
 
+
+
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
