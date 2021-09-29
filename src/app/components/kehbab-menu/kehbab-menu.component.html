@@ -1,16 +1,22 @@
 <div id="container">
-  <div class="group">
+  <div class="group" *ngIf="isLoggedIn">
     <div id="button">
       <div class="circle"></div>
       <div class="circle"></div>
       <div class="circle"></div>
     </div>
     <div class="menu">
-      <div class="menuOption">Edit Post</div>
+      <div
+        class="menuOption"
+        *ngIf="authorID === sessionID"
+        (click)="enableEdit()"
+      >
+        Edit Post
+      </div>
       <div *ngIf="isAuthorized" class="menuOption" (click)="removePost()">
         Delete Post
       </div>
-      <div class="menuOption">Close Post</div>
+      <div class="menuOption" *ngIf="isAuthorized">Close Post</div>
       <div class="menuOption">Report Post</div>
     </div>
   </div>

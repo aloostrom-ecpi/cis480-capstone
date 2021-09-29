@@ -35,6 +35,14 @@ export class CrudService {
     return this.httpClient.post(`${this.REST_API}/reply/${parentID}-${authorID}-${username}`, data)
   }
 
+  CreatePost(authorID: string, username: string, data: any){
+    return this.httpClient.post(`${this.REST_API}/new-post/${authorID}-${username}`, data)
+  }
+
+  EditPost(id: string, data: any) {
+    return this.httpClient.put(`${this.REST_API}/edit-post/${id}`, data);
+  }
+
   GetAllOpenPosts() {
     return this.httpClient.get(`${this.REST_API}/open-posts`);
   }

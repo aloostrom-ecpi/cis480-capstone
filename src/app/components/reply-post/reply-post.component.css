@@ -47,6 +47,9 @@ textarea {
 }
 
 form {
-  border-top: 1px solid grey;
   padding-top: 5px;
+}
+
+.bordertop {
+  border-top: 1px solid grey;
 }
