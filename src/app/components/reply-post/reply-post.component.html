@@ -1,10 +1,14 @@
 <main>
-  <form *ngIf="isLoggedIn" [formGroup]="replyForm" (ngSubmit)="onSubmit()">
+  <form
+    *ngIf="isLoggedIn"
+    [formGroup]="replyForm"
+    (ngSubmit)="onSubmit()"
+    [class.bordertop]="type === 'reply'"
+  >
     <div class="reply-post" [class.hidden]="!isActive">
       <textarea
         name="body"
         id="reply"
-        placeholder=""
         (input)="adjustHt(textarea)"
         #textarea
         formControlName="body"
@@ -19,7 +23,7 @@
         (click)="activate()"
         type="button"
         value="cancel"
-        *ngIf="type === 'reply'"
+        *ngIf="type === 'reply' || type === 'edit'"
       />
       <input
         class="btn"

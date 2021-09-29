@@ -20,7 +20,7 @@ export class KehbabMenuComponent implements OnInit {
   isAuthorized: boolean = false;
   isLoggedIn: boolean = false;
   private session = localStorage.session;
-  public sessionID = JSON.parse(localStorage.session)._id;
+  public sessionID = localStorage.session ? JSON.parse(localStorage.session)._id : '';
 
   constructor(private router: Router, private crudService: CrudService, private userService: UserService) { }
 
@@ -47,7 +47,8 @@ export class KehbabMenuComponent implements OnInit {
   }
 
   async enableEdit() {
-    this.editMode.emit(false)
+    this.editMode.emit(true);
+    console.log(`edit mode enabled`)
   }
 
 }

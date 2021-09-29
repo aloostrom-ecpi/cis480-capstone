@@ -276,6 +276,62 @@ capstoneRoute.route("/new-post/:authorID-:username").post((req, res, next) => {
   });
 });
 
+capstoneRoute.route("/edit-post/:id").put((req, res, next) => {
+  const date = new Date();
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const today = `${
+    months[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
+
+  OpenPosts.findByIdAndUpdate(
+    req.params.id,
+    {
+      body: `${req.body["body"]}
+      (edited ${today})`,
+    },
+    (error, data) => {
+      if (error) {
+        console.log(error);
+        return next(error);
+      } else {
+        console.log("data updated successfully!");
+        res.json(data);
+      }
+    }
+  );
+});
+/* 
+put((req, res, next) => {
+  Census.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (error, data) => {
+      if (error) {
+        return next(error);
+        console.log(error);
+      } else {
+        res.json(data);
+        console.log("Census updated successfully!");
+      }
+    }
+  );
+}); */
+
 //Leave this at the end of the file so we can export the complete
 //definition of the API
 module.exports = capstoneRoute;
