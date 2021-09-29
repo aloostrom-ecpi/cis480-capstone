@@ -57,6 +57,8 @@ export class LoginUserComponent implements OnInit {
   logout() :void {
     localStorage.removeItem("session")
     this.isLoggedIn = false;
+    localStorage.setItem("isContractor", "false");
+    console.log(localStorage.isContractor)
   }
 
   toggleContractor() : void {
