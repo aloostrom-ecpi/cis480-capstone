@@ -7,7 +7,7 @@ let OpenPostSchema = new Schema(
     author: String,
     body: String,
     isParent: Boolean,
-    parentPost: String,
+    parentpost: String,
     username: String,
   },
   {

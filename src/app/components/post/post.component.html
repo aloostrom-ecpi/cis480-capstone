@@ -8,23 +8,43 @@
       <app-kehbab-menu
         [postID]="post._id"
         [authorID]="post.author"
+        (editMode)="toggleEdit($event)"
       ></app-kehbab-menu>
     </div>
   </div>
   <div class="body">
     <!-- MAIN POST: Displays if isSubPost is set to false. --Aren -->
+
     <div *ngIf="!isSubPost">
       <div id="mainpost">
-        {{ post.body }}
+        <div *ngIf="!editMode">{{ post.body }}</div>
+        <app-reply-post
+          *ngIf="editMode"
+          (editMode)="toggleEdit($event)"
+          [type]="'edit'"
+          [postID]="post._id"
+          [isActive]="true"
+        ></app-reply-post>
       </div>
-      <app-reply-post></app-reply-post>
+      <app-reply-post
+        (editMode)="toggleEdit($event)"
+        [type]="'reply'"
+        [parentID]="post._id"
+      ></app-reply-post>
     </div>
 
     <!-- SUB POST: Displays if isSubPost is set to true. --Aren -->
     <div *ngIf="isSubPost">
-      <div id="subpost">
+      <div id="subpost" *ngIf="!editMode">
         {{ post.body }}
       </div>
+      <app-reply-post
+        *ngIf="editMode"
+        (editMode)="toggleEdit($event)"
+        [type]="'edit'"
+        [postID]="post._id"
+        [isActive]="true"
+      ></app-reply-post>
     </div>
   </div>
 </div>

@@ -2,7 +2,11 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 
+
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Make the thing an API and name it
 const capstoneRoute = express.Router();
@@ -83,14 +87,16 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
 
 //Add User to user collection
 capstoneRoute.route("/user").post((req, res, next) => {
-  console.log("Ty2");
-  User.create(req.body, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
-  });
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    req.body.password = hash;
+    User.create(req.body, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+  })
 });
 
 //Username finder - for contractor
@@ -119,8 +125,6 @@ capstoneRoute.route("/user/role/:id").get((req, res) => {
     }
   });
 });
-
-//
 
 //^^^^^^^PAL^^^^^^^
 
@@ -222,6 +226,114 @@ capstoneRoute.route("/child-posts/:parentID").get((req, res) => {
     }
   });
 });
+
+//create reply post (child post)
+capstoneRoute
+  .route("/reply/:parentID-:authorID-:username")
+  .post((req, res, next) => {
+    const { parentID, authorID, username } = req.params;
+
+    const newReply = {
+      author: authorID,
+      body: req.body["body"],
+      isParent: false,
+      parentpost: parentID,
+      username: username,
+    };
+
+    console.log(newReply);
+
+    OpenPosts.create(newReply, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        console.log(data);
+        res.json(data);
+        next();
+      }
+    });
+  });
+
+//create parent post
+capstoneRoute.route("/new-post/:authorID-:username").post((req, res, next) => {
+  const { authorID, username } = req.params;
+
+  const newPost = {
+    author: authorID,
+    body: req.body["body"],
+    isParent: true,
+    parentpost: "",
+    username: username,
+  };
+
+  console.log(newPost);
+
+  OpenPosts.create(newPost, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      console.log(data);
+      res.json(data);
+      next();
+    }
+  });
+});
+
+capstoneRoute.route("/edit-post/:id").put((req, res, next) => {
+  const date = new Date();
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const today = `${
+    months[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
+
+  OpenPosts.findByIdAndUpdate(
+    req.params.id,
+    {
+      body: `${req.body["body"]}
+      (edited ${today})`,
+    },
+    (error, data) => {
+      if (error) {
+        console.log(error);
+        return next(error);
+      } else {
+        console.log("data updated successfully!");
+        res.json(data);
+      }
+    }
+  );
+});
+/* 
+put((req, res, next) => {
+  Census.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (error, data) => {
+      if (error) {
+        return next(error);
+        console.log(error);
+      } else {
+        res.json(data);
+        console.log("Census updated successfully!");
+      }
+    }
+  );
+}); */
 
 //Leave this at the end of the file so we can export the complete
 //definition of the API

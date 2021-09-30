@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ContractorService } from 'src/app/service/contractor.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login-user',
@@ -56,6 +57,8 @@ export class LoginUserComponent implements OnInit {
   logout() :void {
     localStorage.removeItem("session")
     this.isLoggedIn = false;
+    localStorage.setItem("isContractor", "false");
+    console.log(localStorage.isContractor)
   }
 
   toggleContractor() : void {
