@@ -4,13 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CensusListComponent } from './components/census-list/census-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CensusDetailComponent } from './components/census-detail/census-detail.component';
-import { AddCensusComponent } from './components/add-census/add-census.component';
-import { RemoveCensusComponent } from './components/remove-census/remove-census.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { LogoutUserComponent } from './components/logout-user/logout-user.component';
@@ -38,10 +34,6 @@ import { LoadSubPostsComponent } from './components/load-sub-posts/load-sub-post
 @NgModule({
   declarations: [
     AppComponent,
-    CensusListComponent,
-    CensusDetailComponent,
-    AddCensusComponent,
-    RemoveCensusComponent,
     RegisterUserComponent,
     LoginUserComponent,
     LogoutUserComponent,

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Census } from './Census';
 import { ClosedPost, 
   Contractors, 
   OpenPosts, 
@@ -26,10 +25,6 @@ export class CrudService {
  
   constructor(private httpClient: HttpClient, private userService: UserService) { }
  
-  // Get all census
-  GetAllCensus() {
-    return this.httpClient.get(`${this.REST_API}`);
-  }
 
   CreateReply(parentID: string, authorID: string, username: string, data: any) {
     return this.httpClient.post(`${this.REST_API}/reply/${parentID}-${authorID}-${username}`, data)
@@ -81,26 +76,6 @@ export class CrudService {
     )
   }
  
-  //Get a single census
-  GetCensus(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/read-census/${id}`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders})
-      .pipe(map((res: any) => {
-        return res || {}
-      }),
-        catchError(this.handleError)
-      )
-  }
-
-  // Update
-  updateCensus(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/update-census/${id}`;
-    return this.httpClient.put(API_URL, data, { headers: this.httpHeaders})
-      .pipe(
-        catchError(this.handleError)
-      )
-  }
-
   //Add user -- ty adams
   AddUser(data:any) {
     let API_URL = `${this.REST_API}/user`;
@@ -109,27 +84,6 @@ export class CrudService {
         catchError(this.handleError)
       )
   }
-
-  //Add
-  AddCensus(data: Census): Observable<any> {
-    let API_URL = `${this.REST_API}/add-census`;
-    return this.httpClient.post(API_URL, data)
-      .pipe(
-        catchError(this.handleError)
-      )
-  }
-
-//Delete
-  RemoveCensus(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/remove-census/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
-      .pipe(map((res: any) => {
-        return res || {}
-      }),
-        catchError(this.handleError)
-      )
-  }
-
 
   /*
    * Dont modify this so we can troubleshoot errors we come across

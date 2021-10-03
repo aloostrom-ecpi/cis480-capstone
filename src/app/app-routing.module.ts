@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CensusDetailComponent } from './components/census-detail/census-detail.component';
-import { AddCensusComponent } from './components/add-census/add-census.component';
-import { RemoveCensusComponent } from './components/remove-census/remove-census.component';
 import { MainComponent } from './components/main/main.component';
 import { SearchPostsComponent } from './components/search-posts/search-posts.component';
 import { MyPostsComponent } from './components/my-posts/my-posts.component';
@@ -18,9 +15,6 @@ const routes: Routes = [
   { path: 'my-posts', component: MyPostsComponent},
   //{ path: 'notifications', component: NotifyUserComponent},
   { path: 'load-account', component: LoadAccountComponent},
-  { path: 'edit-census/:id', component: CensusDetailComponent},
-  { path: 'add-census', component: AddCensusComponent},
-  { path: 'remove-census/:id', component: RemoveCensusComponent},
   { path: 'search', component: SearchPostsComponent },
   { path: 'register-user', component: RegisterUserComponent },
   { path: 'login-user', component: LoginUserComponent}
