@@ -2,13 +2,14 @@
 
 header {
   display: flex;
-  background: #FFCC00;
+  background: #ffcc00;
   width: 100%;
   height: 50px;
   justify-content: space-around;
   font-size: 1.4rem;
   position: sticky;
   position: -webkit-sticky;
+  z-index: 3;
   top: 0;
 }
 .list {
@@ -50,7 +51,7 @@ ul li {
 .aicon img {
   width: 30px;
   height: 30px;
-  color: #1E90FF;
+  color: #1e90ff;
 }
 .logo {
   display: flex;
@@ -69,4 +70,3 @@ ul li {
   width: 40px;
   border-radius: 25px;
 }
-
