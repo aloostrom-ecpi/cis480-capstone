@@ -2,7 +2,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 
-
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -22,10 +21,10 @@ let User = require("../model/User");
 //^^AREN^^
 
 //User Authentication -- Aren
-capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
-  const { uname, pw } = req.params;
+capstoneRoute.route("/authenticate/user").post((req, res) => {
+  const { username, pw } = req.body;
 
-  User.find({ username: uname }, async (error, data) => {
+  User.find({ username }, async (error, data) => {
     if (error) return next(error);
 
     if (!data.length || data[0].suspended) {
@@ -47,10 +46,10 @@ capstoneRoute.route("/authenticate/user/:uname&:pw").get((req, res) => {
 });
 
 //Contractor Authentication --Aren
-capstoneRoute.route("/authenticate/contractor/:uname&:pw").get((req, res) => {
-  const { uname, pw } = req.params;
+capstoneRoute.route("/authenticate/contractor").post((req, res) => {
+  const { username, pw } = req.body;
 
-  Contractors.find({ username: uname }, async (error, data) => {
+  Contractors.find({ username }, async (error, data) => {
     if (error) return next(error);
 
     if (!data.length || data[0].suspended) {
@@ -87,7 +86,7 @@ capstoneRoute.route("/user/username/:id").get((req, res) => {
 
 //Add User to user collection
 capstoneRoute.route("/user").post((req, res, next) => {
-  bcrypt.hash(req.body.password, 10, function(err, hash) {
+  bcrypt.hash(req.body.password, 10, function (err, hash) {
     req.body.password = hash;
     User.create(req.body, (error, data) => {
       if (error) {
@@ -96,7 +95,7 @@ capstoneRoute.route("/user").post((req, res, next) => {
         res.json(data);
       }
     });
-  })
+  });
 });
 
 //Username finder - for contractor
@@ -160,8 +159,6 @@ capstoneRoute.route("/open-posts/:username").get((req, res) => {
 });
 
 capstoneRoute.route("/remove-post/:id").delete((req, res, next) => {
-  console.log(req.params.id);
-
   OpenPosts.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
@@ -241,13 +238,10 @@ capstoneRoute
       username: username,
     };
 
-    console.log(newReply);
-
     OpenPosts.create(newReply, (error, data) => {
       if (error) {
         return next(error);
       } else {
-        console.log(data);
         res.json(data);
         next();
       }
@@ -266,13 +260,10 @@ capstoneRoute.route("/new-post/:authorID-:username").post((req, res, next) => {
     username: username,
   };
 
-  console.log(newPost);
-
   OpenPosts.create(newPost, (error, data) => {
     if (error) {
       return next(error);
     } else {
-      console.log(data);
       res.json(data);
       next();
     }
@@ -316,24 +307,6 @@ capstoneRoute.route("/edit-post/:id").put((req, res, next) => {
     }
   );
 });
-/* 
-put((req, res, next) => {
-  Census.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: req.body,
-    },
-    (error, data) => {
-      if (error) {
-        return next(error);
-        console.log(error);
-      } else {
-        res.json(data);
-        console.log("Census updated successfully!");
-      }
-    }
-  );
-}); */
 
 //Leave this at the end of the file so we can export the complete
 //definition of the API

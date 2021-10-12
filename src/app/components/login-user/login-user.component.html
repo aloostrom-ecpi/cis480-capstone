@@ -1,46 +1,53 @@
-
 <main>
-    <div class="loginForm">
-      <!-- This is rendered if isLoggedIn is true --Aren -->
-      <div *ngIf="isLoggedIn">
-        <p>Hello {{ user.firstname }}</p>
-        <input type="button" (click)="logout()" value="Log Out" />
-      </div>
-  
-      <!-- This is rendered if isLoggedIn is false --Aren -->
-      <div *ngIf="!isLoggedIn">
-        <h1>Login</h1>
-        <form action="" method="POST">
-          <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
-          <input type="text" placeholder="Username" name="username" #username />
-          <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
-          <input type="password" placeholder="Password" name="password" #password />
-  
-          <!-- This part contains Are you a contractor toggle label and button -->
-          <div id="toggle-div">
-            <div>Are you a contractor?</div>
-            <div
-              class="toggle"
-              (click)="toggleContractor()"
-              [ngClass]="isContractor ? 'userOn' : ''"
-            >
-              <div class="toggle-button"></div>
-            </div>
-          </div>
-          <div class="login-button">
-            <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
-            <input
-              type="submit"
-              value="Login"
-              (click)="login(username.value, password.value)"
-            />
-            <!-- #username passess value to login(username.value, password.value -->
-          </div>
-        </form>
-        <p>
-          Create Account click
-          <a routerLinkActive="active" routerLink="/register-user">Here.</a>
-        </p>
-      </div>
+  <div class="loginForm">
+    <!-- This is rendered if isLoggedIn is true --Aren -->
+    <div *ngIf="isLoggedIn">
+      <p>Hello {{ user.firstname }}, you are logged in.</p>
+      <input type="button" (click)="logout()" value="Log Out" />
     </div>
-  </main>
+
+    <!-- This is rendered if isLoggedIn is false --Aren -->
+    <div *ngIf="!isLoggedIn">
+      <h1>Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+        <input
+          type="text"
+          placeholder="Username"
+          name="username"
+          #username
+          formControlName="username"
+        />
+        <!--Removed : to make the lines placeholders to look cleaner - Steve Woods-->
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          #password
+          formControlName="pw"
+        />
+
+        <!-- This part contains Are you a contractor toggle label and button -->
+        <div id="toggle-div">
+          <div>Are you a contractor?</div>
+          <div
+            class="toggle"
+            (click)="toggleContractor()"
+            [ngClass]="isContractor ? 'userOn' : ''"
+          >
+            <div class="toggle-button"></div>
+          </div>
+        </div>
+        <div class="login-button">
+          <!--added/used a div login-button to space the login button from bottom of input - Steve Woods-->
+          <input type="submit" value="Login" />
+          <!-- #username passess value to login(username.value, password.value -->
+        </div>
+      </form>
+      <p>
+        Create Account click
+        <a routerLinkActive="active" routerLink="/register-user">Here.</a>
+      </p>
+    </div>
+  </div>
+</main>

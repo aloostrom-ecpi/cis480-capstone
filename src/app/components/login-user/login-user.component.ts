@@ -22,24 +22,32 @@ export class LoginUserComponent implements OnInit {
   isLoggedIn: boolean = localStorage.getItem("session") ? true : false;
   isContractor: boolean = false;
   user = this.isLoggedIn ? JSON.parse(localStorage.session) : '';
+  loginForm: FormGroup;
 
   constructor(
     private userService: UserService, 
-    private contactorService: ContractorService, 
-    private router: Router) { }
+    private contractorService: ContractorService, 
+    private router: Router,
+    public formBuilder: FormBuilder) { 
+      this.loginForm = this.formBuilder.group({
+        username: [''],
+        pw: ['']
+      })
+    }
 
   ngOnInit() {
   }
 
   ngOnChanges() {}
 
-  async login(username : string, password : string) {
+  async onSubmit() {
     let success;
 
     if (!this.isContractor){
-     success = await this.userService.login(username, password)
+      console.log(this.loginForm.value)
+     success = await this.userService.login(this.loginForm.value)
     } else {
-     success = await this.contactorService.login(username, password)
+     success = await this.contractorService.login(this.loginForm.value)
     }
     
     success.subscribe( data => {
