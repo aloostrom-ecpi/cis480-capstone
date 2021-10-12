@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
 
 ## NPM Install
+
 Install NPM in the root directory. You will also need to install NPM in the /node-rest-api folder
 
 ## Development server
@@ -30,7 +31,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Database Setup
+
 In order to sample full functionality of the app, create a new MongoDB database called 'cis480'. Create collections within this database with the following names:
+
 <ul>
     <li>closedPosts</li>
     <li>contractors</li>
@@ -39,7 +42,13 @@ In order to sample full functionality of the app, create a new MongoDB database 
     <li>reviews</li>
     <li>users</li>
 </ul>
-After creating the collections, import the JSON files in /mongoDB-assets matching each collection. 
+After creating the collections, import the JSON files in /mongoDB-assets matching each collection.
 
 ## All-in-one start
-Run the task "start all" to launch the API and Angular front end at the same time. 
+
+Run the task "start all" to launch the API and Angular front end at the same time.
+
+## Contributing to project
+
+If you would like to contribute, please see https://onedrive.live.com/edit.aspx?cid=82024aef3a4fa657&page=view&resid=82024AEF3A4FA657!545&parId=82024AEF3A4FA657!544&app=Excel
+for planned changes.
