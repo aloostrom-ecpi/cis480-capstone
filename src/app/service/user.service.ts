@@ -34,10 +34,10 @@ export class UserService {
     }
   }
 
-   login(username: string, pw: string) : Observable <any> {
+   login(data: any) : Observable <any> {
 
     //get user data from db and pass on to this.data
-    return this.client.get(`${this.loginURI}/authenticate/user/${username}&${pw}`);
+    return this.client.post(`${this.loginURI}/authenticate/user`, data);
   }
   
   //would we need this?

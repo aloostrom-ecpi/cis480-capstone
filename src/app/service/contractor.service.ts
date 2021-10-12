@@ -19,10 +19,10 @@ export class ContractorService {
   logout() {
   }
 
-   login(username: string, pw: string) : Observable <any> {
+  login(data: any) : Observable <any> {
 
     //get user data from db and pass on to this.data
-    return this.client.get(`${this.loginURI}/authenticate/contractor/${username}&${pw}`);
+    return this.client.post(`${this.loginURI}/authenticate/contractor`, data);
   }
 
   getUserName(id: string): Observable<any> {
