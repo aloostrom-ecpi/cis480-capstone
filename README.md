@@ -50,5 +50,5 @@ Run the task "start all" to launch the API and Angular front end at the same tim
 
 ## Contributing to project
 
-If you would like to contribute, please see https://onedrive.live.com/edit.aspx?cid=82024aef3a4fa657&page=view&resid=82024AEF3A4FA657!545&parId=82024AEF3A4FA657!544&app=Excel
+If you would like to contribute, please see https://1drv.ms/x/s!AlemTzrvSgKChCGRRX2PoTUZKk10?e=pJfuzB
 for planned changes.
