@@ -1,17 +1,125 @@
 <main>
-    <div class='create-account-form'>
-        <h1>Create Account</h1>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-            <input type="text" id="firstname" placeholder="First Name" formControlName="firstname"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
-            <input type="text" id="lastname" placeholder="Last Name" formControlName="lastname">
-            <input type="text" id="username" placeholder="Username" formControlName="username">
-            <input type="password" id="password" placeholder="Password" formControlName="password">
-            <input type="password" id="cPass" placeholder="Retype Password">
-            <input type="text" id="email" placeholder="Email" formControlName="email">
-            <div class='submit-button'>
-                <input type="submit" value="Submit">
-            </div>
-        </form>
+  <h1>Create Account</h1>
+
+  <div id="selector">
+    <div
+      id="ownerselector"
+      (click)="switchToUser()"
+      [ngClass]="isContractor ? 'inactive' : 'active'"
+    >
+      Owner
     </div>
+    <div
+      id="contractorselector"
+      (click)="switchToContractor()"
+      [ngClass]="isContractor ? 'active' : 'inactive'"
+    >
+      Contractor
+    </div>
+  </div>
+
+  <!-- USER BLOCK -->
+
+  <form [formGroup]="userForm" *ngIf="!isContractor" (ngSubmit)="onSubmit()">
+    <div class="form-1">
+      <input
+        type="text"
+        id="firstname"
+        placeholder="First Name"
+        formControlName="firstname"
+      />
+      <input
+        type="text"
+        id="lastname"
+        placeholder="Last Name"
+        formControlName="lastname"
+      />
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <input type="password" id="cPass" placeholder="Retype Password" />
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-2">
+      <input type="submit" value="Submit" />
+      <div class="back-prompt">
+        Have an account?
+        <a routerLinkActive="active" routerLink="/login-user">Log in.</a>
+      </div>
+    </div>
+  </form>
+
+  <!-- CONTRACTOR BLOCK -->
+  <form
+    [formGroup]="contractorForm"
+    *ngIf="isContractor"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-1">
+      <input
+        type="text"
+        id="contractor_companyname"
+        placeholder="Company Name"
+        formControlName="companyname"
+      />
+      <input
+        type="text"
+        id="contractor_firstname"
+        placeholder="First Name"
+        formControlName="firstname"
+      />
+      <!--Removed : from the lines below to make it cleaner - Steve Woods-->
+      <input
+        type="text"
+        id="contractor_lastname"
+        placeholder="Last Name"
+        formControlName="lastname"
+      />
+      <input
+        type="text"
+        id="contractor_username"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        id="contractor_password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <input
+        type="password"
+        id="contractor_cPass"
+        placeholder="Retype Password"
+      />
+      <input
+        type="email"
+        id="contractor_email"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-2">
+      <input type="submit" value="Submit" />
+      <div class="back-prompt">
+        Have an account?
+        <a routerLinkActive="active" routerLink="/login-user">Log in.</a>
+      </div>
+    </div>
+  </form>
 </main>
 <!--Refactored HTML to closely resemble login form: Alex Loostrom-->

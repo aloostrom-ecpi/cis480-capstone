@@ -31,7 +31,7 @@ export class LoginUserComponent implements OnInit {
     public formBuilder: FormBuilder) { 
       this.loginForm = this.formBuilder.group({
         username: [''],
-        pw: ['']
+        password: ['']
       })
     }
 

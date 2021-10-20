@@ -25,6 +25,9 @@ mongoose
 
 //changed
 const capstoneRoute = require("./routes/capstone.routes");
+const posts = require("./routes/posts.routes");
+const users = require("./routes/users.routes");
+const contractors = require("./routes/contractors.routes");
 
 const app = express();
 app.use(bodyParser.json());
@@ -40,6 +43,9 @@ app.use(express.static(path.join(__dirname, "dist/cis480-capstone")));
 
 // API root
 app.use("/api", capstoneRoute);
+app.use("/posts", posts);
+app.use("/users", users);
+app.use("/contractors", contractors);
 
 // PORT
 const port = process.env.PORT || 8000;

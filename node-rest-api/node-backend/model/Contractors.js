@@ -9,9 +9,15 @@ let ContractorSchema = new Schema(
     username: { type: String },
     password: { type: String },
     email: { type: String },
-    suspended: { type: Boolean },
-    rating: Number,
-    externalLink: String,
+    suspended: { type: Boolean, default: false },
+    rating: { type: Number, default: 0 },
+    externalLink: { type: String, default: "" },
+    notification: [
+      {
+        description: String,
+        link: String,
+      },
+    ],
   },
   {
     collection: "contractors",
