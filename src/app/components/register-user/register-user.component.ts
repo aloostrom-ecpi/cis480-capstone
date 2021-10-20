@@ -30,14 +30,24 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class RegisterUserComponent implements OnInit {
   isContractor: boolean = false;
-  createForm: FormGroup;
+  userForm: FormGroup;
+  contractorForm: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,     
     private router: Router,
     private ngZone: NgZone,
     private crudService: CrudService) { 
-    this.createForm = this.formBuilder.group({ 
+    this.contractorForm = this.formBuilder.group({ 
+      companyname: [''],
+      firstname: [''],
+      lastname: [''],
+      username: [''],
+      password: [''],
+      email: ['']
+    });
+
+    this.userForm = this.formBuilder.group({ 
       firstname: [''],
       lastname: [''],
       username: [''],
@@ -47,7 +57,14 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit(): any {
-    this.crudService.AddUser(this.createForm.value)
+
+    if (this.isContractor) {  this.crudService.AddContractor(this.contractorForm.value)
+      .subscribe(() => {
+        console.log('Data added successfully')
+        this.ngZone.run(() => this.router.navigateByUrl('/home'))
+      }) }
+
+    this.crudService.AddUser(this.userForm.value)
     .subscribe(() => {
       console.log('Data added successfully')
       this.ngZone.run(() => this.router.navigateByUrl('/home'))
