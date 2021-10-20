@@ -20,8 +20,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { CrudService } from 'src/app/service/crud.service';
-
-
+import { UserService } from 'src/app/service/user.service';
+import { ContractorService } from 'src/app/service/contractor.service';
 
 @Component({
   selector: 'app-register-user',
@@ -37,7 +37,9 @@ export class RegisterUserComponent implements OnInit {
     public formBuilder: FormBuilder,     
     private router: Router,
     private ngZone: NgZone,
-    private crudService: CrudService) { 
+    private crudService: CrudService,
+    private userService: UserService,
+    private contractorService: ContractorService) { 
     this.contractorForm = this.formBuilder.group({ 
       companyname: [''],
       firstname: [''],
@@ -56,19 +58,50 @@ export class RegisterUserComponent implements OnInit {
     })
   }
 
-  onSubmit(): any {
+  async onSubmit() {
 
-    if (this.isContractor) {  this.crudService.AddContractor(this.contractorForm.value)
-      .subscribe(() => {
-        console.log('Data added successfully')
-        this.ngZone.run(() => this.router.navigateByUrl('/home'))
-      }) }
+    if (this.isContractor) { 
+      await this.crudService.AddContractor(this.contractorForm.value)
+      .subscribe(()=>{
+        this.contractorService.login(this.contractorForm.value).subscribe( data => {
+          localStorage.setItem("session", JSON.stringify(data));
+          this.router.navigateByUrl('/')},
+    
+    
+            err => {console.log(err, "Invalid login"); }
+            );
+      });
 
-    this.crudService.AddUser(this.userForm.value)
-    .subscribe(() => {
-      console.log('Data added successfully')
-      this.ngZone.run(() => this.router.navigateByUrl('/home'))
-    })
+      
+
+
+    }
+
+    if (!this.isContractor){
+      await this.crudService.AddUser(this.userForm.value)
+      .subscribe(()=>{
+        this.userService.login(this.userForm.value).subscribe( data => {
+          this.userService.data = data; 
+          localStorage.setItem("session", JSON.stringify(data));       
+          this.router.navigateByUrl('/')},
+    
+    
+            err => {console.log(err, "Invalid login"); }
+            );
+
+      });
+
+     
+    }
+
+    
+
+
+
+  }
+
+  testLogin(username: string, ) {
+
   }
 
   ngOnInit(): void {
@@ -76,11 +109,13 @@ export class RegisterUserComponent implements OnInit {
 
   switchToUser() {
     this.isContractor = false;
+    localStorage.setItem("isContractor", 'false');
     console.log(`switch to user ${this.isContractor}`)
   }
 
   switchToContractor() {
     this.isContractor = true;
+    localStorage.setItem("isContractor", 'true');
   }
 
 }

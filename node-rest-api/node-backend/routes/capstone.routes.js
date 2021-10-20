@@ -22,7 +22,7 @@ let User = require("../model/User");
 
 //User Authentication -- Aren
 capstoneRoute.route("/authenticate/user").post((req, res) => {
-  const { username, pw } = req.body;
+  const { username, password } = req.body;
 
   User.find({ username }, async (error, data) => {
     if (error) return next(error);
@@ -35,7 +35,7 @@ capstoneRoute.route("/authenticate/user").post((req, res) => {
     const { _id, username, firstname, lastname } = data[0];
 
     //compare pw with hashed pw and return id, username, firstname, and lastname
-    bcrypt.compare(pw, data[0].password, (err, result) => {
+    bcrypt.compare(password, data[0].password, (err, result) => {
       if (!result) res.send("Invalid Password");
 
       if (result) {
@@ -47,7 +47,7 @@ capstoneRoute.route("/authenticate/user").post((req, res) => {
 
 //Contractor Authentication --Aren
 capstoneRoute.route("/authenticate/contractor").post((req, res) => {
-  const { username, pw } = req.body;
+  const { username, password } = req.body;
 
   Contractors.find({ username }, async (error, data) => {
     if (error) return next(error);
@@ -60,7 +60,7 @@ capstoneRoute.route("/authenticate/contractor").post((req, res) => {
     const { _id, username, firstname, lastname } = data[0];
 
     //compare pw with hashed pw and return id, username, firstname, and lastname
-    bcrypt.compare(pw, data[0].password, (err, result) => {
+    bcrypt.compare(password, data[0].password, (err, result) => {
       if (!result) res.send("Invalid Password");
 
       if (result) {

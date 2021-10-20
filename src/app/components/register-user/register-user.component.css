@@ -33,7 +33,6 @@ input:focus {
 input[type="submit"] {
   width: fit-content;
   outline: none;
-  margin-top: 20px;
   padding: 8px;
 }
 
@@ -89,4 +88,12 @@ main {
 
 .active {
   background: rgb(118, 175, 33);
+}
+
+.form-1 {
+  height: 80%;
+}
+
+.form-2 {
+  height: 20%;
 }
