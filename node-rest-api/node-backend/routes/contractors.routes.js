@@ -9,6 +9,7 @@ app.use(express.json());
 
 const router = express.Router();
 
+//#Registration API
 router.route("/register").post((req, res, next) => {
   console.log(req.body);
 
