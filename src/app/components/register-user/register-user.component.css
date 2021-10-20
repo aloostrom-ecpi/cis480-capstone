@@ -38,7 +38,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: rgba(78, 78, 82, 0.8);
+  background-color: rgba(27, 111, 180, 0.8);
   color: white;
   cursor: pointer;
 }
@@ -88,5 +88,6 @@ main {
 }
 
 .active {
-  background: greenyellow;
+  background: rgb(118, 175, 33);
+  font-weight: bold;
 }

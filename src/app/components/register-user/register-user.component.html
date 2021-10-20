@@ -2,17 +2,30 @@
   <h1>Create Account</h1>
   <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
     <div id="selector">
-      <div id="ownerselector" class="active">Owner</div>
-      <div id="contractorselector">Contractor</div>
+      <div
+        id="ownerselector"
+        (click)="switchToUser()"
+        [ngClass]="isContractor ? 'inactive' : 'active'"
+      >
+        Owner
+      </div>
+      <div
+        id="contractorselector"
+        (click)="switchToContractor()"
+        [ngClass]="isContractor ? 'active' : 'inactive'"
+      >
+        Contractor
+      </div>
     </div>
-    <div>
+
+    <!-- USER BLOCK -->
+    <div *ngIf="!isContractor">
       <input
         type="text"
         id="firstname"
         placeholder="First Name"
         formControlName="firstname"
       />
-      <!--Removed : from the lines below to make it cleaner - Steve Woods-->
       <input
         type="text"
         id="lastname"
@@ -33,12 +46,59 @@
       />
       <input type="password" id="cPass" placeholder="Retype Password" />
       <input
-        type="text"
+        type="email"
         id="email"
         placeholder="Email"
         formControlName="email"
       />
     </div>
+
+    <!-- CONTRACTOR BLOCK -->
+    <div *ngIf="isContractor">
+      <input
+        type="text"
+        id="contractor_companyname"
+        placeholder="Company Name"
+        formControlName="contractor_companyname"
+      />
+      <input
+        type="text"
+        id="contractor_firstname"
+        placeholder="First Name"
+        formControlName="contractor_firstname"
+      />
+      <!--Removed : from the lines below to make it cleaner - Steve Woods-->
+      <input
+        type="text"
+        id="contractor_lastname"
+        placeholder="Last Name"
+        formControlName="contractor_lastname"
+      />
+      <input
+        type="text"
+        id="contractor_username"
+        placeholder="Username"
+        formControlName="contractor_username"
+      />
+      <input
+        type="password"
+        id="contractor_password"
+        placeholder="Password"
+        formControlName="contractor_password"
+      />
+      <input
+        type="password"
+        id="contractor_cPass"
+        placeholder="Retype Password"
+      />
+      <input
+        type="email"
+        id="contractor_email"
+        placeholder="Email"
+        formControlName="contractor_email"
+      />
+    </div>
+
     <input type="submit" value="Submit" />
   </form>
 </main>

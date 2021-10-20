@@ -29,7 +29,7 @@ import { CrudService } from 'src/app/service/crud.service';
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-
+  isContractor: boolean = false;
   createForm: FormGroup;
 
   constructor(
@@ -55,6 +55,15 @@ export class RegisterUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  switchToUser() {
+    this.isContractor = false;
+    console.log(`switch to user ${this.isContractor}`)
+  }
+
+  switchToContractor() {
+    this.isContractor = true;
   }
 
 }
