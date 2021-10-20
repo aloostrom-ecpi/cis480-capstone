@@ -1,17 +1,45 @@
 <main>
-    <div class='create-account-form'>
-        <h1>Create Account</h1>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-            <input type="text" id="firstname" placeholder="First Name" formControlName="firstname"> <!--Removed : from the lines below to make it cleaner - Steve Woods-->
-            <input type="text" id="lastname" placeholder="Last Name" formControlName="lastname">
-            <input type="text" id="username" placeholder="Username" formControlName="username">
-            <input type="password" id="password" placeholder="Password" formControlName="password">
-            <input type="password" id="cPass" placeholder="Retype Password">
-            <input type="text" id="email" placeholder="Email" formControlName="email">
-            <div class='submit-button'>
-                <input type="submit" value="Submit">
-            </div>
-        </form>
+  <h1>Create Account</h1>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div id="selector">
+      <div id="ownerselector" class="active">Owner</div>
+      <div id="contractorselector">Contractor</div>
     </div>
+    <div>
+      <input
+        type="text"
+        id="firstname"
+        placeholder="First Name"
+        formControlName="firstname"
+      />
+      <!--Removed : from the lines below to make it cleaner - Steve Woods-->
+      <input
+        type="text"
+        id="lastname"
+        placeholder="Last Name"
+        formControlName="lastname"
+      />
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <input type="password" id="cPass" placeholder="Retype Password" />
+      <input
+        type="text"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+    <input type="submit" value="Submit" />
+  </form>
 </main>
 <!--Refactored HTML to closely resemble login form: Alex Loostrom-->
