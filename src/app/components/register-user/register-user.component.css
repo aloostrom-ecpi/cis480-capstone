@@ -6,12 +6,14 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 10px, 0px;
   width: 250px;
   height: 350px;
   border: 1px rgba(0, 0, 0, 0.3) solid;
   box-shadow: rgba(94, 94, 94, 0.7) 5px 5px 20px 2px;
   border-radius: 5px;
-  padding: 30px 0px 20px 0px;
+  padding: 30px 0px 15px 0px;
 }
 
 input {
@@ -46,7 +48,7 @@ input[type="submit"]:hover {
   color: gray;
 }
 
-main {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +56,12 @@ main {
   height: 93vh;
   overflow: hidden;
   background: white;
+}
+
+main {
+  /*placeholder this can replace container too*/
+  display: flex;
+  justify-content: center;
 }
 
 #selector {
@@ -92,6 +100,7 @@ main {
 
 .form-1 {
   height: 80%;
+  width: 80%;
 }
 
 .form-2 {
@@ -103,5 +112,10 @@ main {
 }
 
 .back-prompt {
+  font-size: 0.8rem;
+}
+
+.warning {
+  color: rgb(198, 7, 7);
   font-size: 0.8rem;
 }
