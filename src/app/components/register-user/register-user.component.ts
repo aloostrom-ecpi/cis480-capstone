@@ -99,13 +99,15 @@ export class RegisterUserComponent implements OnInit {
     }
 
     if (badPattern) {
+
+      console.log(badPattern.requiredPattern === '/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\\-/\\\\"]).{8,20}$/')
         
       switch (badPattern.requiredPattern){
           case '/^[^\\s]+$/':
             warningMsg = 'Space not allowed'
             break;
       
-          case '(/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\\-/\\\\"]).{8,20}$/':
+          case '/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\\-/\\\\"]).{8,20}$/':
             warningMsg = 'Invalid Password'
             break;
 
