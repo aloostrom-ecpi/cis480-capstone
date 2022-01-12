@@ -51,17 +51,17 @@ export class RegisterUserComponent implements OnInit {
     this.userForm =   this.formBuilder.group({ 
       firstname: [''],
       lastname: [''],
-      username: ['',  Validators.pattern(/^[^\s]+$/)],
-      password: ['', Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\-/\\"]).{8,20}$/)],
-      email: ['', [Validators.required, Validators.email]]
+      username: ['',  /* Validators.pattern(/^[^\s]+$/) */],
+      password: ['', /* Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\-/\\"]).{8,20}$/) */],
+      email: ['', /* [Validators.required, Validators.email] */]
     });
     this.contractorForm = this.formBuilder.group({ 
       companyname: [''],
       firstname: [''],
       lastname: [''],
       username: [''],
-      password: ['', Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\-/\\"]).{8,20}$/)],
-      email: ['', [Validators.required, Validators.email]]
+      password: ['', /* Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\-/\\"]).{8,20}$/) */],
+      email: ['', /* [Validators.required, Validators.email] */]
     })
   }
 
@@ -79,7 +79,7 @@ export class RegisterUserComponent implements OnInit {
   removeWhiteSpace(input: any) {
     input.value = input.value.replace(/ /g, '');
   }
-
+/* 
   //check if warning is hidden
   isFormValid(id: string){
     const control = this.isContractor ? this.contractorForm.get(id) : this.userForm.get(id);
@@ -96,8 +96,8 @@ export class RegisterUserComponent implements OnInit {
 
     if (isRequired) {
       warningMsg = 'Required';
-    }
-
+    } */
+/* 
     if (badPattern) {
 
       console.log(badPattern.requiredPattern === '/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&?@+\\-/\\\\"]).{8,20}$/')
@@ -117,7 +117,7 @@ export class RegisterUserComponent implements OnInit {
     }
 
     return warningMsg;
-  }
+  } */
   
 
   

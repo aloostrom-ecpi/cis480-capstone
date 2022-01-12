@@ -21,15 +21,15 @@
 
     <!-- USER BLOCK -->
 
-    <form [formGroup]="userForm" *ngIf="!isContractor" (ngSubmit)="testLogin()">
+    <form [formGroup]="userForm" *ngIf="!isContractor" (ngSubmit)="onSubmit()">
       <div class="form-1">
-        <div
+        <!--      <div
           *ngIf="userForm.get('firstname')?.errors"
           class="warning"
           [hidden]="userForm.get('firstname')?.pristine"
         >
           Required
-        </div>
+        </div> -->
         <input
           type="text"
           id="firstname"
@@ -37,13 +37,13 @@
           formControlName="firstname"
           required
         />
-        <div
+        <!--     <div
           *ngIf="userForm.get('lastname')?.errors"
           [hidden]="userForm.get('lastname')?.pristine"
           class="warning"
         >
           Required
-        </div>
+        </div> -->
         <input
           type="text"
           id="lastname"
@@ -51,9 +51,9 @@
           formControlName="lastname"
           required
         />
-        <div *ngIf="!isFormValid('username')" class="warning">
+        <!--         <div *ngIf="!isFormValid('username')" class="warning">
           {{ toggleWarning("username") }}
-        </div>
+        </div> -->
         <input
           #uname
           type="text"
@@ -62,9 +62,9 @@
           formControlName="username"
           required
         />
-        <div *ngIf="!isFormValid('password')" class="warning">
+        <!--    <div *ngIf="!isFormValid('password')" class="warning">
           {{ toggleWarning("password") }}
-        </div>
+        </div> -->
         <input
           type="password"
           id="password"
@@ -73,10 +73,10 @@
           required
         />
 
-        <div class="warning">Passwords do not match</div>
+        <!--  <div class="warning">Passwords do not match</div> -->
         <input type="password" id="cPass" placeholder="Retype Password" />
 
-        <div class="warning">Invalid E-mail</div>
+        <!--    <div class="warning">Invalid E-mail</div> -->
         <input
           type="email"
           id="email"

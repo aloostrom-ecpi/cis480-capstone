@@ -19,6 +19,7 @@ export class CrudService {
  
   // Node/Express API
   REST_API: string = 'http://localhost:8000/api';
+  USER_API: string = 'http://localhost:8000/users'
   CONTRACTOR_API: string = 'http://localhost:8000/contractors';
  
   // Http Header
@@ -79,7 +80,7 @@ export class CrudService {
  
   //Add user -- ty adams
   AddUser(data:any) {
-    let API_URL = `${this.REST_API}/user`;
+    let API_URL = `${this.USER_API}/register`;
     return this.httpClient.post(API_URL, data)
       .pipe(
         catchError(this.handleError)
