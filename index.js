@@ -5,7 +5,6 @@ let express = require("express"),
   bodyParser = require("body-parser"),
   mongoDb = require("./database/db");
 
-console.log("hello world");
 require("dotenv").config();
 
 mongoose.connect(process.env.DB_STR, (err) => {
