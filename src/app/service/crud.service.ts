@@ -18,7 +18,7 @@ export class CrudService {
  
   // Node/Express API
   /* REST_API: string = 'http://localhost:8000/api';  <----use this for local*/
-  REST_API: string = 'https://cis480-capstone.herokuapp.com//api'
+  REST_API: string = 'https://cis480-capstone.herokuapp.com/api'
   USER_API: string = 'http://localhost:8000/users'
   CONTRACTOR_API: string = 'http://localhost:8000/contractors';
  
