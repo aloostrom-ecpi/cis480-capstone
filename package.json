@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
-    "start all": "concurrently \"node node-rest-api/node-backend/index.js\" \"npm start\"",
-    "devStart": "concurrently \"nodemon node-rest-api/node-backend/index.js\" \"npm start\"",
+    "start": "node index.js",
+    "start all": "concurrently \"node node-rest-api/node-backend/index.js\" \"ng serve --open\"",
+    "devStart": "concurrently \"nodemon node-rest-api/node-backend/index.js\" \"ng serve --open\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
