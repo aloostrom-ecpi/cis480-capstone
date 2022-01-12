@@ -7,6 +7,7 @@ let express = require("express"),
 
 require("dotenv").config();
 
+console.log("Initializing server..");
 mongoose.connect(process.env.DB_STR, (err) => {
   if (err) {
     console.log("Failed to connect to database. " + err.message);
