@@ -5,23 +5,16 @@ let express = require("express"),
   bodyParser = require("body-parser"),
   mongoDb = require("./database/db");
 
-console.log("hello world");
+require("dotenv").config();
 
-mongoose.Promise = global.Promise;
-mongoose
-  .connect(mongoDb.db, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(
-    () => {
-      console.log("Database sucessfully connected ");
-    },
-    (error) => {
-      console.log("Database error: " + error);
-    }
-  );
+console.log("Initializing server..");
+mongoose.connect(process.env.DB_STR, (err) => {
+  if (err) {
+    console.log("Failed to connect to database. " + err.message);
+  } else {
+    console.log("Successfully connected to database");
+  }
+});
 
 //changed
 const capstoneRoute = require("./routes/capstone.routes");
@@ -38,6 +31,13 @@ app.use(
 );
 app.use(cors());
 
+// PORT
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
+  console.log("Listening on port " + port);
+});
+
 // Static directory path
 app.use(express.static(path.join(__dirname, "dist/cis480-capstone")));
 
@@ -46,23 +46,6 @@ app.use("/api", capstoneRoute);
 app.use("/posts", posts);
 app.use("/users", users);
 app.use("/contractors", contractors);
-
-// PORT
-const port = process.env.PORT || 8000;
-
-app.listen(port, () => {
-  console.log("Listening on port " + port);
-});
-
-// 404 Handler
-app.use((req, res, next) => {
-  next(createError(404));
-});
-
-// Base Route
-app.get("/", (req, res) => {
-  res.send("invaild endpoint");
-});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist/cis480-capstone/index.html"));

@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
-    "start all": "concurrently \"node node-rest-api/node-backend/index.js\" \"npm start\"",
-    "devStart": "concurrently \"nodemon node-rest-api/node-backend/index.js\" \"npm start\"",
+    "start": "node index.js",
+    "start all": "concurrently \"node node-rest-api/node-backend/index.js\" \"ng serve --open\"",
+    "devStart": "concurrently \"nodemon node-rest-api/node-backend/index.js\" \"ng serve --open\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -22,6 +22,12 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.1.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -39,6 +45,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "nodemon": "^2.0.12"
   }
 }
