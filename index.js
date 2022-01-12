@@ -6,22 +6,15 @@ let express = require("express"),
   mongoDb = require("./database/db");
 
 console.log("hello world");
+require("dotenv").config();
 
-mongoose.Promise = global.Promise;
-mongoose
-  .connect(mongoDb.db, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(
-    () => {
-      console.log("Database sucessfully connected ");
-    },
-    (error) => {
-      console.log("Database error: " + error);
-    }
-  );
+mongoose.connect(process.env.DB_STR, (err) => {
+  if (err) {
+    console.log("Failed to connect to database. " + err.message);
+  } else {
+    console.log("Successfully connected to database");
+  }
+});
 
 //changed
 const capstoneRoute = require("./routes/capstone.routes");

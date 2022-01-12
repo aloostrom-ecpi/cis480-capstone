@@ -9,7 +9,6 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { UserService } from './user.service';
-
  
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,8 @@ import { UserService } from './user.service';
 export class CrudService {
  
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  /* REST_API: string = 'http://localhost:8000/api';  <----use this for local*/
+  REST_API: string = 'https://cis480-capstone.herokuapp.com//api'
   USER_API: string = 'http://localhost:8000/users'
   CONTRACTOR_API: string = 'http://localhost:8000/contractors';
  
