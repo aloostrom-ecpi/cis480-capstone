@@ -17,10 +17,15 @@ import { UserService } from './user.service';
 export class CrudService {
  
   // Node/Express API
-  /* REST_API: string = 'http://localhost:8000/api';  <----use this for local*/
-  REST_API: string = 'https://cis480-capstone.herokuapp.com/api'
+  /* 
+  --use this block for local--
+  REST_API: string = 'http://localhost:8000/api';  
   USER_API: string = 'http://localhost:8000/users'
   CONTRACTOR_API: string = 'http://localhost:8000/contractors';
+*/
+  REST_API: string = 'https://cis480-capstone.herokuapp.com/api'
+  USER_API: string = 'https://cis480-capstone.herokuapp.com/users'
+  CONTRACTOR_API: string = 'https://cis480-capstone.herokuapp.com/contractors';
  
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
